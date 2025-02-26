@@ -8,6 +8,8 @@ public class Grenade : MonoBehaviour
     public float explosionForce = 70;
     bool exploded = false;
 
+    public GameObject explosionEffect;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +30,8 @@ public class Grenade : MonoBehaviour
 
     void Explode()
     {
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (var rangeObjects in colliders)
