@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movementInput;
 
-    private float gravity = -9.81f;
+    private float gravity = -14.81f;
 
     public Transform groundCheck;
     public float sphereRadius = 0.3f;
