@@ -1235,8 +1235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacb93b77113b364b8e0cd540cffc06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swayAmount: 2
-  swaySpeed: 5
+  swayAmount: 0.5
+  swaySpeed: 3
 --- !u!114 &215685519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,8 +1251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1827993394}
   bullet: {fileID: 6082552167255848271, guid: e5d83465e3101b54ca76ddf03b38f8c5, type: 3}
-  shotForce: 6000
-  shotRate: 0.2
+  shotForce: 12000
+  shotRate: 2
   shotSound: {fileID: 8300000, guid: 4a5dcf5dcdb2c44418bc59c31d3671ad, type: 3}
 --- !u!82 &215685520
 AudioSource:
@@ -1500,6 +1500,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1644,6 +1645,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 20
   playerBody: {fileID: 851680457}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea58ef5973bf584f9cd575352bdc7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 8572362474156415873}
+  - {fileID: 2114123151}
+  - {fileID: 215685516}
+  selectedWeapon: 0
 --- !u!1 &346945140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,7 +2260,7 @@ Transform:
   m_GameObject: {fileID: 529586717}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00001, y: 0.03, z: 0.276}
+  m_LocalPosition: {x: 0.00001, y: 0.03, z: 0.2866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5736,7 +5754,7 @@ Transform:
   m_GameObject: {fileID: 1827993393}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00001, y: 0.0114, z: 0.516}
+  m_LocalPosition: {x: 0.00001, y: 0.0114, z: 0.546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6152,8 +6170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacb93b77113b364b8e0cd540cffc06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swayAmount: 2
-  swaySpeed: 5
+  swayAmount: 0.5
+  swaySpeed: 3
 --- !u!114 &2114123154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6169,7 +6187,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 529586718}
   bullet: {fileID: 6082552167255848271, guid: e5d83465e3101b54ca76ddf03b38f8c5, type: 3}
   shotForce: 6000
-  shotRate: 0.2
+  shotRate: 0.1
   shotSound: {fileID: 8300000, guid: 4a5dcf5dcdb2c44418bc59c31d3671ad, type: 3}
 --- !u!82 &2114123155
 AudioSource:
@@ -6903,7 +6921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957372517605687459, guid: cafc91c4f51eff743aa2be7fd2cea248, type: 3}
       propertyPath: m_Name
-      value: ShortGunAmmoBox
+      value: GunAmmoBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7176,7 +7194,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 8574493022904398349}
   bullet: {fileID: 6082552167255848271, guid: e5d83465e3101b54ca76ddf03b38f8c5, type: 3}
   shotForce: 6000
-  shotRate: 0.2
+  shotRate: 0.5
   shotSound: {fileID: 8300000, guid: 4a5dcf5dcdb2c44418bc59c31d3671ad, type: 3}
 --- !u!114 &8572362474156415875
 MonoBehaviour:
