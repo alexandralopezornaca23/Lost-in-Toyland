@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class WeaponLogic : MonoBehaviour
 {
     public Transform spawnPoint;
     public GameObject bullet;

@@ -5,8 +5,8 @@ public class WeaponSway : MonoBehaviour
 {
     private Quaternion startRotation;
 
-    public float swayAmount = 2f;
-    public float swaySpeed = 5f;
+    public float swayAmount = 0.5f;
+    public float swaySpeed = 3f;
 
     private Vector2 mouseDelta;
 
@@ -42,8 +42,8 @@ public class WeaponSway : MonoBehaviour
         float mouseX = mouseDelta.x;
         float mouseY = mouseDelta.y;
 
-        Quaternion xAngle = Quaternion.AngleAxis(mouseX * -1.5f, Vector3.up);
-        Quaternion yAngle = Quaternion.AngleAxis(mouseY * -1.5f, Vector3.left);
+        Quaternion xAngle = Quaternion.AngleAxis(mouseX * -0.5f, Vector3.up);
+        Quaternion yAngle = Quaternion.AngleAxis(mouseY * -0.5f, Vector3.left);
 
         Quaternion targetRotation = startRotation * xAngle * yAngle;
         transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * swaySpeed);

@@ -21,6 +21,18 @@ public class PlayerMovement : MonoBehaviour
 
     public float jumpHeight = 3f;
 
+    public bool isSprinting;
+    public float sprintingSpeedMultiplier = 1.5f;
+    private float sprintSpeed = 1f;
+
+    public float staminaUseAmount = 5f;
+    private StaminaBar staminaSlider;
+
+    private void Start()
+    {
+        staminaSlider = FindFirstObjectByType<StaminaBar>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -46,14 +58,60 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        }
+        JumpCheck();
 
-        characterController.Move(move * speed * Time.deltaTime);
+        RunCheck();
+
+        characterController.Move(move * speed * Time.deltaTime * sprintSpeed);
 
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
+    }
+
+    public void JumpCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
+    }
+
+    public void RunCheck()
+    {
+        if (Keyboard.current.leftShiftKey.isPressed) // Mientras se mantiene presionado
+        {
+            isSprinting = !isSprinting;
+
+            if (isSprinting == true)
+            {
+                staminaSlider.UseStamina(staminaUseAmount);
+            }
+            else
+            {
+                staminaSlider.UseStamina(0);
+            }
+        }
+        //if (Input.GetKeyDown(KeyCode.LeftShift))
+        //{
+        //    isSprinting = !isSprinting; //cambiar a correr o no.
+        //}
+
+        //if (isSprinting == true)
+        //{
+        //    sprintSpeed = sprintingSpeedMultiplier;
+        //}
+        //else
+        //{
+        //    sprintSpeed = 1f;
+        //}
+
+        if (isSprinting == true) // Mientras se mantiene presionado
+        {
+            sprintSpeed = sprintingSpeedMultiplier;
+        }
+        else
+        {
+            sprintSpeed = 1f;
+        }
     }
 }
