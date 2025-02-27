@@ -6789,6 +6789,7 @@ MonoBehaviour:
   bullet: {fileID: 6082552167255848271, guid: e5d83465e3101b54ca76ddf03b38f8c5, type: 3}
   shotForce: 6000
   shotRate: 0.2
+  shotSound: {fileID: 8300000, guid: 4a5dcf5dcdb2c44418bc59c31d3671ad, type: 3}
 --- !u!114 &8572362474156415875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6826,7 +6827,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: 0.399
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0

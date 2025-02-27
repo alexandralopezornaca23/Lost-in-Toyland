@@ -10,9 +10,13 @@ public class Grenade : MonoBehaviour
 
     public GameObject explosionEffect;
 
+    private AudioSource audioSource;
+    public AudioClip explosionSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         countdown = delay;
     }
 
@@ -43,6 +47,12 @@ public class Grenade : MonoBehaviour
                 rb.AddExplosionForce(explosionForce * 10, transform.position, radius);
             }
         }
-        Destroy(gameObject);
+
+        audioSource.PlayOneShot(explosionSound);
+
+        gameObject.GetComponent<SphereCollider>().enabled = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+        Destroy(gameObject, delay * 2);
     }
 }
