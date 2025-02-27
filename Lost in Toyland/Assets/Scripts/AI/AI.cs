@@ -22,8 +22,15 @@ public class AI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        navMeshAgent.destination = destinations[i].transform.position;
-        player = Object.FindFirstObjectByType<PlayerMovement>().gameObject;
+        if (destinations == null || destinations.Length == 0)
+        {
+            transform.gameObject.GetComponent<AI>().enabled = false;
+        }
+        else
+        {
+            navMeshAgent.destination = destinations[i].transform.position;
+            player = Object.FindFirstObjectByType<PlayerMovement>().gameObject;
+        }
     }
 
     // Update is called once per frame
