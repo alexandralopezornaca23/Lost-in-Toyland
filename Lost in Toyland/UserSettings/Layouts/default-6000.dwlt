@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 120
+  controlID: 115
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 45
+  controlID: 40
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 46
+  controlID: 41
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 47
+  controlID: 42
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 48
+  controlID: 43
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 322
     height: 673
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -352,8 +352,8 @@ MonoBehaviour:
     y: 0
     width: 479
     height: 933
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 25}
@@ -1047,9 +1047,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -0.7394719, y: -24.547352, z: -27.341063}
+    m_Target: {x: -1.4802343, y: -1.5340724, z: -5.075198}
     speed: 2
-    m_Value: {x: -0.7394719, y: -24.547352, z: -27.341063}
+    m_Value: {x: -1.4802343, y: -1.5340724, z: -5.075198}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1095,13 +1095,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.016395986, y: 0.9303482, z: -0.3639544, w: -0.041911773}
+    m_Target: {x: 0.27970982, y: 0.007200668, z: -0.0020977734, w: 0.9600553}
     speed: 2
-    m_Value: {x: -0.01633281, y: 0.9308764, z: -0.36255193, w: -0.041935563}
+    m_Value: {x: 0.27970982, y: 0.007200668, z: -0.0020977734, w: 0.9600553}
   m_Size:
-    m_Target: 27.64123
+    m_Target: 5.5723815
     speed: 2
-    m_Value: 27.64123
+    m_Value: 5.5723815
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1171,23 +1171,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8aaa0000
-      m_LastClickedID: 43658
-      m_ExpandedIDs: bcc3ffff3ef2ffff40f2ffff42f2ffff44f2ffff46f2ffff74f2ffff76f2ffff78f2ffff7af2ffff94faffffa2faffff14fbffff18fbffff98aa0000b6aa000002ab0000
+      m_SelectedIDs: 24030100
+      m_LastClickedID: 0
+      m_ExpandedIDs: fa38ffff3642ffff084bffffeae400003ee50000c2e5000008e6000016e70000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: M1911 Handgun_Black (Shooting)
+        m_OriginalName: M1911 Handgun_Black (Shooting)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 59158
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 11}
@@ -1490,7 +1490,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Weapons
+    - Assets/Sounds
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1500,17 +1500,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Prefabs/Weapons
+  - Assets/Sounds
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\Proyectos Unity\Lost in the Toyland\Lost-in-Toyland\Lost
     in Toyland
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 154}
-    m_SelectedIDs: baae0000
-    m_LastClickedID: 44730
-    m_ExpandedIDs: 00000000c2ad0000a8ae0000aeae0000b2ae0000b4ae0000c8d30000ced30000e0d30000e2d30000f8d30000
+    scrollPos: {x: 0, y: 266}
+    m_SelectedIDs: 24030100
+    m_LastClickedID: 66340
+    m_ExpandedIDs: 00000000b6e40000bae40000c0e40000c4e400000c03010012030100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1539,7 +1539,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c2ad0000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1585,7 +1585,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 13}
+      m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1593,7 +1593,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 84}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
@@ -1680,7 +1680,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 43658
+  m_LastSelectedObjectID: 59158
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1717,8 +1717,9 @@ MonoBehaviour:
     m_SaveData: []
     m_ContainerData: []
     m_OverlaysVisible: 1
-  m_ObjectsLockedBeforeSerialization: []
-  m_InstanceIDsLockedBeforeSerialization: 
+  m_ObjectsLockedBeforeSerialization:
+  - {fileID: 0}
+  m_InstanceIDsLockedBeforeSerialization: 16e70000
   m_PreviewResizer:
     m_CachedPref: 160
     m_ControlHash: 1412526313
@@ -1728,7 +1729,7 @@ MonoBehaviour:
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
-    m_IsLocked: 0
+    m_IsLocked: 1
   m_PreviewWindow: {fileID: 0}
 --- !u!114 &26
 MonoBehaviour:

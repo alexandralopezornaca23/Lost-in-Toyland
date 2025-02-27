@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour
 
     private float shotRateTime = 0f;
 
+    private AudioSource audioSource;
+
 
     // Update is called once per frame
     void Update()
