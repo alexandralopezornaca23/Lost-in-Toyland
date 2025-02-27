@@ -12,6 +12,12 @@ public class PlayerInteractions : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.CompareTag("HealthObject"))
+        {
+            GameManager.Instance.AddHealth(other.gameObject.GetComponent<HealthObject>().health);
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.CompareTag("DeathFloor"))
         {
             //Perder vida, respawnear a nuestro personaje
@@ -21,7 +27,6 @@ public class PlayerInteractions : MonoBehaviour
             gameObject.transform.position = startPosition.position;
             GetComponent<CharacterController>().enabled = true;
         }
-
 
         if (other.gameObject.CompareTag("Enemy"))
         {
