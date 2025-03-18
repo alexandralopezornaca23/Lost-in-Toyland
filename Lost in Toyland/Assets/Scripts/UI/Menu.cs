@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Menu : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Keyboard.current.pKey.wasPressedThisFrame)
         {
             isPaused = !isPaused;
             PauseGame();

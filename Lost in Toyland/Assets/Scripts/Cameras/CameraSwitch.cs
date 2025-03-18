@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraSwitch : MonoBehaviour
 {
@@ -10,11 +11,11 @@ public class CameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Keyboard.current.tKey.wasPressedThisFrame)
         {
             fpsEnabled = !fpsEnabled;
             ChangeCamera();
-        }   
+        }
     }
 
     public void ChangeCamera()

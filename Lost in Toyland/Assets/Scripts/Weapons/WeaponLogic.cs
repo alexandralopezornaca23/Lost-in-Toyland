@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponLogic : MonoBehaviour
 {
@@ -21,23 +22,26 @@ public class WeaponLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Mouse.current.leftButton.wasPressedThisFrame) // Usa el nuevo Input System
         {
-            if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
-            {
-                audioSource.PlayOneShot(shotSound);
+            Shoot();
+        }
+    }
 
-                GameManager.Instance.gunAmmo--;
+    private void Shoot()
+    {
+        if (Time.time > shotRateTime && GameManager.Instance.gunAmmo > 0)
+        {
+            audioSource.PlayOneShot(shotSound);
 
-                GameObject newBullet;
-                newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+            GameManager.Instance.gunAmmo--;
 
-                newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
+            GameObject newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+            newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
 
-                shotRateTime = Time.time + shotRate;
+            shotRateTime = Time.time + shotRate;
 
-                Destroy(newBullet, 5);
-            }
+            Destroy(newBullet, 5);
         }
     }
 }

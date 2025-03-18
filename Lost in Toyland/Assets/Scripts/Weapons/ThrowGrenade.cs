@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ThrowGrenade : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class ThrowGrenade : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             Throw();
         }

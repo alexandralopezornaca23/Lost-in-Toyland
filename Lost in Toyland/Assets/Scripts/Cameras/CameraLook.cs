@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class CameraLook : MonoBehaviour
 {
-    public float mouseSensitivity = 80f;
+    public float mouseSensitivity = 5f;
 
     public Transform playerBody;
 
@@ -20,7 +20,7 @@ public class CameraLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lookInput = Mouse.current.delta.ReadValue() * mouseSensitivity * Time.deltaTime;
+        lookInput = Mouse.current.delta.ReadValue() * mouseSensitivity;
 
         float mouseX = lookInput.x;
         float mouseY = lookInput.y;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponSwitch : MonoBehaviour
 {
@@ -17,44 +18,20 @@ public class WeaponSwitch : MonoBehaviour
     {
         int previousWeapon = selectedWeapon;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        float scrollValue = Mouse.current.scroll.ReadValue().y;
+
+        if (scrollValue > 0)
         {
-            if (selectedWeapon >= weapons.Length -1)
-            {
-                selectedWeapon = 0;
-            }
-            else
-            {
-                selectedWeapon++;
-            }
+            selectedWeapon = (selectedWeapon >= weapons.Length - 1) ? 0 : selectedWeapon + 1;
+        }
+        else if (scrollValue < 0)
+        {
+            selectedWeapon = (selectedWeapon <= 0) ? weapons.Length - 1 : selectedWeapon - 1;
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            if (selectedWeapon <= 0)
-            {
-                selectedWeapon = weapons.Length -1;
-            }
-            else
-            {
-                selectedWeapon--;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            selectedWeapon = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2) && weapons.Length >= 2)
-        {
-            selectedWeapon = 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3) && weapons.Length >= 3)
-        {
-            selectedWeapon = 2;
-        }
+        if (Keyboard.current.digit1Key.wasPressedThisFrame) selectedWeapon = 0;
+        if (Keyboard.current.digit2Key.wasPressedThisFrame && weapons.Length >= 2) selectedWeapon = 1;
+        if (Keyboard.current.digit3Key.wasPressedThisFrame && weapons.Length >= 3) selectedWeapon = 2;
 
         if (previousWeapon != selectedWeapon)
         {
@@ -70,15 +47,7 @@ public class WeaponSwitch : MonoBehaviour
         {
             if (weapon.gameObject.layer == LayerMask.NameToLayer("Weapon"))
             {
-                if (i == selectedWeapon)
-                {
-                    weapon.gameObject.SetActive(true);
-                }
-                else
-                {
-                    weapon.gameObject.SetActive(false);
-                }
-
+                weapon.gameObject.SetActive(i == selectedWeapon);
                 i++;
             }
         }
