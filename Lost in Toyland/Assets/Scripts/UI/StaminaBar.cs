@@ -45,7 +45,7 @@ public class StaminaBar : MonoBehaviour
         }
         else
         {
-            FindFirstObjectByType<PlayerMovement>().isSprinting = false;
+            FindFirstObjectByType<PlayerController>().isSprinting = false;
             Debug.Log("No tenemos Stamina");
         }
     }
@@ -63,7 +63,7 @@ public class StaminaBar : MonoBehaviour
 
         myCoroutineLosing = null;
 
-        FindFirstObjectByType<PlayerMovement>().isSprinting = false;
+        FindFirstObjectByType<PlayerController>().isSprinting = false;
     }
 
     private IEnumerator RegenerateStaminaCoroutine()

@@ -12,6 +12,12 @@ public class PlayerInteractions : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.CompareTag("Grenade"))
+        {
+            GameManager.Instance.grenadeAmmo += other.gameObject.GetComponent<GrenadeObject>().grenade;
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.CompareTag("HealthObject"))
         {
             GameManager.Instance.AddHealth(other.gameObject.GetComponent<HealthObject>().health);

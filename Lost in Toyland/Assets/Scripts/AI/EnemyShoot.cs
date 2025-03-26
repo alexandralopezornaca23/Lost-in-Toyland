@@ -16,7 +16,7 @@ public class EnemyShoot : MonoBehaviour
 
         //Invoke("ShootPlayer", 3);
 
-        PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
+        PlayerController player = FindFirstObjectByType<PlayerController>();
         if (player != null)
         {
             playerPosition = player.transform;

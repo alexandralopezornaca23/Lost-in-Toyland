@@ -9,7 +9,7 @@ public class ThrowGrenade : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if (Keyboard.current.cKey.wasPressedThisFrame && GameManager.Instance.grenadeAmmo > 0)
         {
             Throw();
         }
@@ -20,5 +20,7 @@ public class ThrowGrenade : MonoBehaviour
         GameObject newGrenade = Instantiate(grenadPrefab, transform.position, transform.rotation);
 
         newGrenade.GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
+
+        GameManager.Instance.grenadeAmmo--;
     }
 }

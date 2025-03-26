@@ -29,7 +29,7 @@ public class AI : MonoBehaviour
         else
         {
             navMeshAgent.destination = destinations[i].transform.position;
-            player = Object.FindFirstObjectByType<PlayerMovement>().gameObject;
+            player = Object.FindFirstObjectByType<PlayerController>().gameObject;
         }
     }
 

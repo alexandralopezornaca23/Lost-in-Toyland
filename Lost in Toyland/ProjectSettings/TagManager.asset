@@ -9,11 +9,14 @@ TagManager:
   - DeathFloor
   - EnemyBullet
   - HealthObject
+  - ShortGun
+  - Rifle
+  - Grenade
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - Floor
@@ -21,7 +24,7 @@ TagManager:
   - Enemy
   - Obstacle
   - Weapon
-  - 
+  - Item
   - 
   - 
   - 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public CharacterController characterController;
 
@@ -28,13 +28,36 @@ public class PlayerMovement : MonoBehaviour
     public float staminaUseAmount = 5f;
     private StaminaBar staminaSlider;
 
+    public bool nonGun = false;
+    public bool hasPistol = false;
+    public bool hasRifle = false;
+
+    //Item
+    public GameObject nearItem;
+    public GameObject[] itemPrefab;
+    public GameObject[] itemSlot;
+    public GameObject crosshair;
+
     private void Start()
     {
         staminaSlider = FindFirstObjectByType<StaminaBar>();
+
+        GameObject instantiatedNonGun;
+        instantiatedNonGun = Instantiate(itemPrefab[0], itemSlot[0].transform.position, itemSlot[0].transform.rotation);
+        instantiatedNonGun.transform.parent = itemSlot[0].transform;
+        nonGun = true;
+        nearItem = null;
     }
 
     // Update is called once per frame
     void Update()
+    {
+        MoveLogic();
+
+        GunLogic();
+    }
+
+    public void MoveLogic()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, sphereRadius, groundMask);
 
@@ -43,16 +66,8 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        //float x = Input.GetAxis("Horizontal");
-        //float z = Input.GetAxis("Vertical");
-
-        //Vector3 move = transform.right * x + transform.forward * z;
-
-        //characterController.Move(move);
-
         if (Keyboard.current == null) return;
 
-        // Leer el input con el nuevo sistema
         float x = (Keyboard.current.dKey.isPressed ? 1 : 0) - (Keyboard.current.aKey.isPressed ? 1 : 0);
         float z = (Keyboard.current.wKey.isPressed ? 1 : 0) - (Keyboard.current.sKey.isPressed ? 1 : 0);
 
@@ -91,19 +106,6 @@ public class PlayerMovement : MonoBehaviour
                 staminaSlider.UseStamina(0);
             }
         }
-        //if (Input.GetKeyDown(KeyCode.LeftShift))
-        //{
-        //    isSprinting = !isSprinting; //cambiar a correr o no.
-        //}
-
-        //if (isSprinting == true)
-        //{
-        //    sprintSpeed = sprintingSpeedMultiplier;
-        //}
-        //else
-        //{
-        //    sprintSpeed = 1f;
-        //}
 
         if (isSprinting == true) // Mientras se mantiene presionado
         {
@@ -113,5 +115,55 @@ public class PlayerMovement : MonoBehaviour
         {
             sprintSpeed = 1f;
         }
+    }
+
+    public void CameraLogic()
+    {
+
+    }
+
+    public void GunLogic()
+    {
+        if (nearItem != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            GameObject instantiatedItem;
+            if (nearItem.gameObject.CompareTag("ShortGun"))
+            {
+                instantiatedItem = Instantiate(itemPrefab[1], itemSlot[1].transform.position, itemSlot[1].transform.rotation);
+                Destroy(nearItem.gameObject);
+                instantiatedItem.transform.parent = itemSlot[1].transform;
+                hasPistol = true;
+                nearItem = null;
+            }
+            else if (nearItem.gameObject.CompareTag("Rifle"))
+            {
+                instantiatedItem = Instantiate(itemPrefab[2], itemSlot[2].transform.position, itemSlot[2].transform.rotation);
+                Destroy(nearItem.gameObject);
+                instantiatedItem.transform.parent = itemSlot[2].transform;
+                hasRifle = true;
+                nearItem = null;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
+        {
+            nearItem = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
+        {
+            nearItem = null;
+        }
+    }
+
+    public void AnimLogic()
+    {
+
     }
 }
