@@ -1,8 +1,47 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteractions : MonoBehaviour
 {
     public Transform startPosition;
+
+    //Objetos Interactivos
+    LayerMask mask;
+    public float distancia = 3f;
+
+    public Texture2D puntero;
+    public GameObject infoText;
+    GameObject lastDetected = null;
+
+    private void Start()
+    {
+        mask = LayerMask.GetMask("RaycastDetect");
+        infoText.SetActive(false);
+    }
+
+    private void Update()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, distancia, mask))
+        {
+            Deselect();
+            SelectedObject(hit.transform);
+
+            if (hit.collider.tag == "Door")
+            {
+                if (Keyboard.current.eKey.wasPressedThisFrame)
+                {
+                    hit.collider.transform.GetComponent<SystemDoor>().ChangeDoorState();
+                }
+            }
+        }
+        else
+        {
+            Deselect();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,5 +85,35 @@ public class PlayerInteractions : MonoBehaviour
        {
             GameManager.Instance.LoseHealth(10);
        }
+    }
+
+    void SelectedObject(Transform transform)
+    {
+        transform.GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
+        lastDetected = transform.gameObject;
+    }
+
+    void Deselect()
+    {
+        if (lastDetected)
+        {
+            lastDetected.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+            lastDetected = null;
+        }
+    }
+
+    void OnGUI()
+    {
+        Rect rect = new Rect(Screen.width / 2, Screen.height / 2, puntero.height, puntero.height);
+        GUI.DrawTexture(rect, puntero);
+
+        if (lastDetected)
+        {
+            infoText.SetActive(true);
+        }
+        else
+        {
+            infoText.SetActive(false);
+        }
     }
 }

@@ -12,6 +12,10 @@ TagManager:
   - ShortGun
   - Rifle
   - Grenade
+  - Door
+  - DoorSound
+  - DoorSoundOpen
+  - DoorSoundClose
   layers:
   - Default
   - TransparentFX
@@ -25,7 +29,7 @@ TagManager:
   - Obstacle
   - Weapon
   - Item
-  - 
+  - RaycastDetect
   - 
   - 
   - 

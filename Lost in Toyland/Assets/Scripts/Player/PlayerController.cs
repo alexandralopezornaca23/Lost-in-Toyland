@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
     public GameObject nearItem;
     public GameObject[] itemPrefab;
     public GameObject[] itemSlot;
-    public GameObject crosshair;
 
     private void Start()
     {
