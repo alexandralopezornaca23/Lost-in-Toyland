@@ -14,6 +14,8 @@ public class PlayerInteractions : MonoBehaviour
     public GameObject infoText;
     GameObject lastDetected = null;
 
+    public LockedDoor door;    
+
     private void Start()
     {
         mask = LayerMask.GetMask("RaycastDetect");
@@ -34,6 +36,14 @@ public class PlayerInteractions : MonoBehaviour
                 if (Keyboard.current.eKey.wasPressedThisFrame)
                 {
                     hit.collider.transform.GetComponent<SystemDoor>().ChangeDoorState();
+                }
+            }
+
+            if (hit.collider.tag == "DoorLocked" && door != null && door.isUnloocked)
+            {
+                if (Keyboard.current.eKey.wasPressedThisFrame)
+                {
+                    door.ChangeDoorState();
                 }
             }
         }

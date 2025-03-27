@@ -11,12 +11,6 @@ public class SystemDoor : MonoBehaviour
     public AudioClip openDoor;
     public AudioClip closeDoor;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     public void ChangeDoorState()
     {
         doorOpen = !doorOpen;

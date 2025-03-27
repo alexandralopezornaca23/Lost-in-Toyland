@@ -16,6 +16,7 @@ TagManager:
   - DoorSound
   - DoorSoundOpen
   - DoorSoundClose
+  - DoorLocked
   layers:
   - Default
   - TransparentFX
