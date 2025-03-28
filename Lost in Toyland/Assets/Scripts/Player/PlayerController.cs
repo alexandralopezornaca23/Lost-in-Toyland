@@ -1,25 +1,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    public CharacterController characterController;
+    [SerializeField]
+    private float playerSpeed = 4.5f;
+    [SerializeField]
+    private float jumpHeight = 1.0f;
+    [SerializeField]
+    private float gravityValue = -9.81f;
+    [SerializeField]
+    private float rotationSpeed = 5f;
 
-    public float speed = 6f;
+    private CharacterController controller;
+    private PlayerInput playerInput;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
 
-    private Vector2 movementInput;
+    private Transform cameraTransform;
 
-    private float gravity = -14.81f;
-
-    public Transform groundCheck;
-    public float sphereRadius = 0.3f;
-    public LayerMask groundMask;
-
-    bool isGrounded;
-    
-    Vector3 velocity;
-
-    public float jumpHeight = 3f;
+    private InputAction moveAction;
+    private InputAction jumpAction;
 
     public bool isSprinting;
     public float sprintingSpeedMultiplier = 1.5f;
@@ -32,10 +34,21 @@ public class PlayerController : MonoBehaviour
     public bool hasPistol = false;
     public bool hasRifle = false;
 
+    public Transform bulletParent;
+
     //Item
     public GameObject nearItem;
     public GameObject[] itemPrefab;
     public GameObject[] itemSlot;
+
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+        playerInput = GetComponent<PlayerInput>();
+        cameraTransform = Camera.main.transform;
+        moveAction = playerInput.actions["Move"];
+        jumpAction = playerInput.actions["Jump"];        
+    }
 
     private void Start()
     {
@@ -48,46 +61,35 @@ public class PlayerController : MonoBehaviour
         nearItem = null;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        MoveLogic();
-
         GunLogic();
-    }
-
-    public void MoveLogic()
-    {
-        isGrounded = Physics.CheckSphere(groundCheck.position, sphereRadius, groundMask);
-
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
-        if (Keyboard.current == null) return;
-
-        float x = (Keyboard.current.dKey.isPressed ? 1 : 0) - (Keyboard.current.aKey.isPressed ? 1 : 0);
-        float z = (Keyboard.current.wKey.isPressed ? 1 : 0) - (Keyboard.current.sKey.isPressed ? 1 : 0);
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        JumpCheck();
-
         RunCheck();
 
-        characterController.Move(move * speed * Time.deltaTime * sprintSpeed);
-
-        velocity.y += gravity * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime);
-    }
-
-    public void JumpCheck()
-    {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            playerVelocity.y = 0f;
         }
+
+        Vector2 input =moveAction.ReadValue<Vector2>();
+        Vector3 move = new Vector3(input.x, 0, input.y);
+        move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
+        move.y = 0f;
+        controller.Move(move * Time.deltaTime * playerSpeed);
+
+        // Makes the player jump
+        if (jumpAction.triggered && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
+
+        //rotate towards camera direction
+        Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     public void RunCheck()
@@ -116,23 +118,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CameraLogic()
-    {
-
-    }
-
     public void GunLogic()
     {
         if (nearItem != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
             GameObject instantiatedItem;
+            WeaponController weaponController;
+
             if (nearItem.gameObject.CompareTag("ShortGun"))
             {
                 instantiatedItem = Instantiate(itemPrefab[1], itemSlot[1].transform.position, itemSlot[1].transform.rotation);
                 Destroy(nearItem.gameObject);
                 instantiatedItem.transform.parent = itemSlot[1].transform;
                 hasPistol = true;
-                nearItem = null;
             }
             else if (nearItem.gameObject.CompareTag("Rifle"))
             {
@@ -140,8 +138,24 @@ public class PlayerController : MonoBehaviour
                 Destroy(nearItem.gameObject);
                 instantiatedItem.transform.parent = itemSlot[2].transform;
                 hasRifle = true;
-                nearItem = null;
             }
+            else
+            {
+                return;
+            }
+
+            // Asignar el PlayerInput al arma
+            weaponController = instantiatedItem.GetComponent<WeaponController>();
+            if (weaponController != null)
+            {
+                weaponController.playerInput = playerInput;
+            }
+            else
+            {
+                Debug.LogError("WeaponController no encontrado en el arma instanciada.");
+            }
+
+            nearItem = null;
         }
     }
 
@@ -159,10 +173,5 @@ public class PlayerController : MonoBehaviour
         {
             nearItem = null;
         }
-    }
-
-    public void AnimLogic()
-    {
-
     }
 }

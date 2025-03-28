@@ -1,12 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    [SerializeField]
+    private GameObject bulletDecal;
+
+    private float speed = 50f;
+    private float timeToDestroy = 3f;
+
+    public Vector3 target { get; set; }
+    public bool hit { get; set; }
+
+    private void OnEnable()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Destroy(gameObject, timeToDestroy);
+    }
+
+    void Update()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if (!hit && Vector3.Distance(transform.position, target) < 0.01f) 
         {
-            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        ContactPoint contact = other.GetContact(0);
+        GameObject contactDecal = Instantiate(bulletDecal, contact.point + contact.normal * 0.0001f, Quaternion.LookRotation(contact.normal));
+
+        Destroy(contactDecal, 1f);
+        Destroy(gameObject);
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
         }
     }
 }

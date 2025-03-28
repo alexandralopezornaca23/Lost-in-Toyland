@@ -4,11 +4,25 @@ using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
-    public Transform shootSpawn;
+    private Transform cameraTransform;
+
+    [SerializeField]
+    private Transform shootSpawn;
+
     public bool shooting = false;
     public float shootDelay = 0f;
     public float lastShootTime = 0f;
-    public GameObject bulletPrefab;
+
+    [SerializeField]
+    private GameObject bulletPrefab;
+    
+    private PlayerController playerControllerBulletParent;
+
+    [SerializeField]
+    private float bulletHitMissDistance = 25f;
+
+    public PlayerInput playerInput;
+    private InputAction shootAction;
 
     public enum ShootMode
     {
@@ -17,20 +31,47 @@ public class WeaponController : MonoBehaviour
     }
     public ShootMode currentShotMode = ShootMode.Single;
 
-
-
-
-    public float shootForce = 2000f;
-    public float shootRate = 0.2f;
-
     private float shootRateTime = 0f;
 
     private AudioSource audioSource;
-    public AudioClip shootSound;
+
+    [SerializeField]
+    private AudioClip shootSound;
 
     private void Start()
     {
+        cameraTransform = Camera.main?.transform;
         audioSource = GetComponent<AudioSource>();
+        playerControllerBulletParent = Object.FindFirstObjectByType<PlayerController>();
+
+        if (playerInput == null)
+        {
+            return;
+        }
+
+        shootAction = playerInput.actions["Shoot"];
+    }
+
+    private void OnEnable()
+    {
+        if (shootAction != null)
+        {
+            shootAction.performed += OnShootAction;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (shootAction != null)
+        {
+            shootAction.performed -= OnShootAction;
+        }
+    }
+
+    private void OnShootAction(InputAction.CallbackContext context)
+    {
+        shooting = true;
+        Shoot();
     }
 
     private void Update()
@@ -44,17 +85,6 @@ public class WeaponController : MonoBehaviour
         {
             shooting = false;
         }
-
-        Debug.DrawLine(shootSpawn.position, shootSpawn.forward * 10f, Color.red);
-        Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * 10f, Color.blue);
-
-        RaycastHit cameraHit;
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out cameraHit))
-        {
-            Vector3 shootDirection = cameraHit.point - shootSpawn.position;
-            shootSpawn.rotation = Quaternion.LookRotation(shootDirection);            
-        }
     }
 
     public void Shoot()
@@ -66,7 +96,7 @@ public class WeaponController : MonoBehaviour
                 switch (currentShotMode)
                 {
                     case ShootMode.Single:
-                        InstantiateBullet();
+                        ShootGun();
                         break;
                     case ShootMode.Auto:
                         StartCoroutine(AutomaticShoot());
@@ -76,20 +106,26 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void InstantiateBullet()
+    private void ShootGun()
     {
         if (Time.time > shootRateTime && GameManager.Instance.gunAmmo > 0)
         {
             audioSource.PlayOneShot(shootSound);
+            RaycastHit hit;
+            GameObject bullet = GameObject.Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity, playerControllerBulletParent.bulletParent);
+            Bullet bulletController = bullet.GetComponent<Bullet>();
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+            {
+                bulletController.target = hit.point;
+                bulletController.hit = true;
+            }
+            else
+            {
+                bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                bulletController.hit = false;
+            }
 
             GameManager.Instance.gunAmmo--;
-
-            GameObject newBullet = Instantiate(bulletPrefab, shootSpawn.position, shootSpawn.rotation);
-            newBullet.GetComponent<Rigidbody>().AddForce(shootSpawn.forward * shootForce);
-
-            shootRateTime = Time.time + shootRate;
-
-            Destroy(newBullet, 4);
         }
     }
 
@@ -97,7 +133,7 @@ public class WeaponController : MonoBehaviour
     {
         while (shooting)
         {
-            InstantiateBullet();
+            ShootGun();
             yield return new WaitForSeconds(shootDelay);
         }
     }
