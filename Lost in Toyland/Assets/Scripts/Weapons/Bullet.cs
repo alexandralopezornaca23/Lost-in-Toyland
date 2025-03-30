@@ -29,6 +29,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Enemy"))
+        {
+            return;
+        }
+
         ContactPoint contact = other.GetContact(0);
         GameObject contactDecal = Instantiate(bulletDecal, contact.point + contact.normal * 0.0001f, Quaternion.LookRotation(contact.normal));
 

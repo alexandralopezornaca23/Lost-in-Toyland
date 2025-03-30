@@ -7,6 +7,8 @@ public class WeaponSwitch : MonoBehaviour
 
     public int selectedWeapon = 0;
 
+    public PlayerController playerController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,9 +31,30 @@ public class WeaponSwitch : MonoBehaviour
             selectedWeapon = (selectedWeapon <= 0) ? weapons.Length - 1 : selectedWeapon - 1;
         }
 
-        if (Keyboard.current.digit1Key.wasPressedThisFrame) selectedWeapon = 0;
-        if (Keyboard.current.digit2Key.wasPressedThisFrame && weapons.Length >= 2) selectedWeapon = 1;
-        if (Keyboard.current.digit3Key.wasPressedThisFrame && weapons.Length >= 3) selectedWeapon = 2;
+        if (Keyboard.current.digit1Key.wasPressedThisFrame && playerController.hasNonGun)
+        {
+            playerController.jumpAnimation = Animator.StringToHash("PlayerJump");
+            playerController.animator.SetBool("EquipNonGun", true);
+            playerController.animator.SetBool("EquipPistol", false);
+            playerController.animator.SetBool("EquipRifle", false);
+            selectedWeapon = 0;
+        }
+        if (Keyboard.current.digit2Key.wasPressedThisFrame && playerController.hasPistol && weapons.Length >= 2)
+        {
+            playerController.jumpAnimation = Animator.StringToHash("PlayerJumpPistol");
+            playerController.animator.SetBool("EquipNonGun", false);            
+            playerController.animator.SetBool("EquipPistol", true);
+            playerController.animator.SetBool("EquipRifle", false);
+            selectedWeapon = 1;
+        }
+        if (Keyboard.current.digit3Key.wasPressedThisFrame && playerController.hasRifle && weapons.Length >= 3)
+        {
+            playerController.jumpAnimation = Animator.StringToHash("PlayerJumpRifle");
+            playerController.animator.SetBool("EquipNonGun", false);
+            playerController.animator.SetBool("EquipPistol", false);
+            playerController.animator.SetBool("EquipRifle", true);
+            selectedWeapon = 2;
+        }
 
         if (previousWeapon != selectedWeapon)
         {

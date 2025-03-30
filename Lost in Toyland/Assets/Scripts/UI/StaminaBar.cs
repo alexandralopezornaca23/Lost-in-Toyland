@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class StaminaBar : MonoBehaviour
 {
-    public Slider staminaSlider;
+    public Slider staminaBar;
 
     public float maxStamina = 100f;
-    private float currentStamina;
+    public float currentStamina;
 
     private float regenerateStaminaTime = 0.1f;
     private float regenerateAmount = 2f;
@@ -22,15 +22,14 @@ public class StaminaBar : MonoBehaviour
     void Start()
     {
         currentStamina = maxStamina;
-        staminaSlider.maxValue = maxStamina;
-        staminaSlider.value = maxStamina;
+        staminaBar.maxValue = maxStamina;
+        staminaBar.value = maxStamina;
     }
 
     public void UseStamina(float amount)
     {
         if (currentStamina - amount > 0)
         {
-
             if (myCoroutineLosing != null)
             {
                 StopCoroutine(myCoroutineLosing);
@@ -45,9 +44,17 @@ public class StaminaBar : MonoBehaviour
         }
         else
         {
+            currentStamina = 0;
+            staminaBar.value = currentStamina;
             FindFirstObjectByType<PlayerController>().isSprinting = false;
-            Debug.Log("No tenemos Stamina");
+            FindFirstObjectByType<PlayerController>().animator.SetBool("isSprinting", false); // Asegurar que la animación se desactive
         }
+    }
+
+    public void RecoverStamina(float amount)
+    {
+        currentStamina = Mathf.Min(currentStamina + amount, maxStamina);
+        staminaBar.value = currentStamina; // Asegurar que la UI refleje el cambio
     }
 
     private IEnumerator LosingStaminaCoroutine(float amount)
@@ -56,7 +63,7 @@ public class StaminaBar : MonoBehaviour
         {
             currentStamina -= amount;
 
-            staminaSlider.value = currentStamina;
+            staminaBar.value = currentStamina;
 
             yield return new WaitForSeconds(losingStaminaTime);
         }
@@ -73,7 +80,14 @@ public class StaminaBar : MonoBehaviour
         while (currentStamina < maxStamina)
         {
             currentStamina += regenerateAmount;
-            staminaSlider.value = currentStamina;
+            staminaBar.value = currentStamina;
+
+            if (currentStamina >= maxStamina)
+            {
+                currentStamina = maxStamina;
+                staminaBar.value = currentStamina;
+                yield break; // Salir del bucle si la estamina ya está al máximo
+            }
 
             yield return new WaitForSeconds(regenerateStaminaTime);
         }

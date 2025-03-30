@@ -4,60 +4,85 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float playerSpeed = 4.5f;
-    [SerializeField]
-    private float jumpHeight = 1.0f;
-    [SerializeField]
-    private float gravityValue = -9.81f;
-    [SerializeField]
-    private float rotationSpeed = 5f;
+    public Transform spawnPoint;
+
+    [SerializeField] private float playerSpeed = 4.5f;
+    [SerializeField] private float jumpHeight = 1.0f;
+    [SerializeField] private float gravityValue = -9.81f;
+    [SerializeField] private float rotationSpeed = 5f;
+
+    [SerializeField] private float animationSmoothTime = 0.1f;
+    [SerializeField] private float animationPlayTransition = 0.15f;
 
     private CharacterController controller;
     private PlayerInput playerInput;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-
     private Transform cameraTransform;
-
     private InputAction moveAction;
     private InputAction jumpAction;
+    private InputAction sprintAction;
+
+    public Animator animator;
+    int moveXAnimationParametrerID;
+    int moveZAnimationParametrerID;
+    public int jumpAnimation;
+    public int sprintAnimation;
+
+    Vector2 currentAnimationBlendVector;
+    Vector2 animationVelocity;
 
     public bool isSprinting;
-    public float sprintingSpeedMultiplier = 1.5f;
     private float sprintSpeed = 1f;
-
-    public float staminaUseAmount = 5f;
+    public float sprintingSpeedMultiplier = 1.5f;
+    [SerializeField] private float staminaDrainRate = 40f;
+    public float staminaRecoveryRate = 5f;
     private StaminaBar staminaSlider;
 
-    public bool nonGun = false;
+    //GunsWeapons
+    public bool hasNonGun = true;
     public bool hasPistol = false;
     public bool hasRifle = false;
 
     public Transform bulletParent;
 
-    //Item
     public GameObject nearItem;
     public GameObject[] itemPrefab;
     public GameObject[] itemSlot;
 
     private void Awake()
     {
+        hasNonGun = true;
+
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         cameraTransform = Camera.main.transform;
         moveAction = playerInput.actions["Move"];
-        jumpAction = playerInput.actions["Jump"];        
+        jumpAction = playerInput.actions["Jump"];
+        sprintAction = playerInput.actions["Sprint"];
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        animator = GetComponent<Animator>();
+
+        jumpAnimation = Animator.StringToHash("PlayerJump");
+        moveXAnimationParametrerID = Animator.StringToHash("MoveX");
+        moveZAnimationParametrerID = Animator.StringToHash("MoveZ");
     }
 
     private void Start()
     {
+        if (spawnPoint != null)
+        {
+            transform.position = spawnPoint.position;
+            transform.rotation = spawnPoint.rotation; // Hace que mire en la dirección del SpawnPoint
+        }
+
         staminaSlider = FindFirstObjectByType<StaminaBar>();
 
         GameObject instantiatedNonGun;
         instantiatedNonGun = Instantiate(itemPrefab[0], itemSlot[0].transform.position, itemSlot[0].transform.rotation);
         instantiatedNonGun.transform.parent = itemSlot[0].transform;
-        nonGun = true;
         nearItem = null;
     }
 
@@ -70,18 +95,62 @@ public class PlayerController : MonoBehaviour
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
+            animator.SetBool("isJumping", false);
+
+            // Verifica si el jugador sigue moviéndose
+            if (currentAnimationBlendVector.magnitude > 0.1f)
+            {
+                animator.SetFloat(moveXAnimationParametrerID, currentAnimationBlendVector.x);
+                animator.SetFloat(moveZAnimationParametrerID, currentAnimationBlendVector.y);
+            }
+            else
+            {
+                animator.SetFloat(moveXAnimationParametrerID, 0);
+                animator.SetFloat(moveZAnimationParametrerID, 0);
+            }
         }
 
         Vector2 input =moveAction.ReadValue<Vector2>();
-        Vector3 move = new Vector3(input.x, 0, input.y);
+        currentAnimationBlendVector = Vector2.SmoothDamp(currentAnimationBlendVector, input, ref animationVelocity, animationSmoothTime);
+        Vector3 move = new Vector3(currentAnimationBlendVector.x, 0, currentAnimationBlendVector.y);
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
         move.y = 0f;
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        controller.Move(move * Time.deltaTime * playerSpeed * sprintSpeed);
+
+        //Blend Strafe Animation
+        animator.SetFloat(moveXAnimationParametrerID, currentAnimationBlendVector.x);
+        animator.SetFloat(moveZAnimationParametrerID, currentAnimationBlendVector.y);
 
         // Makes the player jump
         if (jumpAction.triggered && groundedPlayer)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            animator.SetBool("isJumping", true);
+
+            if (isSprinting && groundedPlayer)
+            {
+                animator.SetBool("isSprinting", false);  // Desactivar la animación de sprint
+                animator.SetTrigger("jumpWhileSprinting");  // Activar el trigger de salto mientras esprinta
+            }
+        }
+
+        // Al aterrizar, se debe asegurar que la animación de salto se desactive correctamente
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;  // Resetear la velocidad vertical
+            animator.SetBool("isJumping", false);  // Desactivar animación de salto
+
+            // Reanudar animación de movimiento o esprint si es necesario
+            if (currentAnimationBlendVector.magnitude > 0.1f)
+            {
+                animator.SetFloat(moveXAnimationParametrerID, currentAnimationBlendVector.x);
+                animator.SetFloat(moveZAnimationParametrerID, currentAnimationBlendVector.y);
+            }
+            else
+            {
+                animator.SetFloat(moveXAnimationParametrerID, 0);
+                animator.SetFloat(moveZAnimationParametrerID, 0);
+            }
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -94,28 +163,27 @@ public class PlayerController : MonoBehaviour
 
     public void RunCheck()
     {
-        if (Keyboard.current.leftShiftKey.isPressed) // Mientras se mantiene presionado
+        if (Keyboard.current.leftShiftKey.isPressed && staminaSlider.currentStamina > 1 && (currentAnimationBlendVector.x != 0 || currentAnimationBlendVector.y != 0 || !groundedPlayer))
         {
-            isSprinting = !isSprinting;
-
-            if (isSprinting == true)
-            {
-                staminaSlider.UseStamina(staminaUseAmount);
-            }
-            else
-            {
-                staminaSlider.UseStamina(0);
-            }
-        }
-
-        if (isSprinting == true) // Mientras se mantiene presionado
-        {
-            sprintSpeed = sprintingSpeedMultiplier;
+            isSprinting = true;
+            staminaSlider.UseStamina(staminaDrainRate * Time.deltaTime);
+            animator.SetBool("isSprinting", true);
+            animator.SetTrigger("jumpWhileSprinting");
         }
         else
         {
-            sprintSpeed = 1f;
+            isSprinting = false;
+            animator.SetBool("isSprinting", false);
+            sprintSpeed = isSprinting ? sprintingSpeedMultiplier : 1f;
+            return;
         }
+
+        if (!isSprinting && staminaSlider.currentStamina < staminaSlider.maxStamina)
+        {
+            staminaSlider.RecoverStamina(staminaRecoveryRate * Time.deltaTime);
+        }
+
+        sprintSpeed = isSprinting ? sprintingSpeedMultiplier : 1f;
     }
 
     public void GunLogic()
@@ -149,10 +217,6 @@ public class PlayerController : MonoBehaviour
             if (weaponController != null)
             {
                 weaponController.playerInput = playerInput;
-            }
-            else
-            {
-                Debug.LogError("WeaponController no encontrado en el arma instanciada.");
             }
 
             nearItem = null;

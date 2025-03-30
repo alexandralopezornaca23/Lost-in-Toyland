@@ -114,6 +114,7 @@ public class WeaponController : MonoBehaviour
             RaycastHit hit;
             GameObject bullet = GameObject.Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity, playerControllerBulletParent.bulletParent);
             Bullet bulletController = bullet.GetComponent<Bullet>();
+
             if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
             {
                 bulletController.target = hit.point;

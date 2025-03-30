@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 893097648298060500}
   m_Layer: 0
   m_Name: CanonUp
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2255011411291293}
   m_Layer: 0
   m_Name: CanonDown
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 4926171181262534595}
   m_Layer: 0
   m_Name: UpperCase
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 908621019599505607}
   m_Layer: 0
   m_Name: UpperCaseDetail2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 6741750284221166622}
   m_Layer: 10
   m_Name: ShortGun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +369,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.28699994, y: -0.416, z: 0.44600022}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6672457877958647391}
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 7635025423563046072}
   m_Layer: 0
   m_Name: RefFront
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 6825908392036852012}
   m_Layer: 0
   m_Name: HandleLow
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 6672457877958647391}
   m_Layer: 0
   m_Name: ShortGun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 511554172820087747}
   m_Layer: 10
   m_Name: SpawnPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 5700277979160808344}
   m_Layer: 0
   m_Name: HandleBig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 3269457620116199288}
   m_Layer: 0
   m_Name: UpperCaseDetail3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 4440189462967602570}
   m_Layer: 0
   m_Name: DetalUp
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 2870238454824481300}
   m_Layer: 0
   m_Name: RefLateral
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,7 +997,7 @@ GameObject:
   - component: {fileID: 8401728576457969520}
   m_Layer: 0
   m_Name: DetailDown
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1082,7 +1082,7 @@ GameObject:
   - component: {fileID: 3949836767876668879}
   m_Layer: 0
   m_Name: UpperCaseDetail1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
