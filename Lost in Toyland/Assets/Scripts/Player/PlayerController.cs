@@ -174,8 +174,6 @@ public class PlayerController : MonoBehaviour
         {
             isSprinting = false;
             animator.SetBool("isSprinting", false);
-            sprintSpeed = isSprinting ? sprintingSpeedMultiplier : 1f;
-            return;
         }
 
         if (!isSprinting && staminaSlider.currentStamina < staminaSlider.maxStamina)

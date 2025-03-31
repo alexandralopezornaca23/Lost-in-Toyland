@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,54 +17,61 @@ public class AI : MonoBehaviour
 
     private bool isWaiting = false;
     private bool isAttacking = false;
-    private bool playerInRange = false;  // Saber si el jugador está dentro del trigger
-    private Collider playerCollider;     // Guardar referencia al jugador
 
     [Header("----------Follow Player?----------")]
     public bool followPlayer;
 
     private GameObject player;
 
-    private float distanceToPlayer;
     public float distanceToFollowPlayer = 10f;
-    
+
+    public float attackRange = 2f; // Rango de ataque del enemigo
+    public float attackCooldown = 1f; // Tiempo entre ataques
+    public int attackDamage = 10; // Daño que inflige el enemigo
+    public Transform playerTransform; // Referencia al jugador
+    private float lastAttackTime; // Control de tiempo para ataques
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (destinations == null || destinations.Length == 0)
         {
-            transform.gameObject.GetComponent<AI>().enabled = false;
+            enabled = false;
+            return;
         }
-        else
+
+        navMeshAgent.destination = destinations[i].transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player)
         {
-            navMeshAgent.destination = destinations[i].transform.position;
-            player = Object.FindFirstObjectByType<PlayerController>().gameObject;
+            playerTransform = player.transform;
         }
 
         animator = GetComponent<Animator>();
+        lastAttackTime = -attackCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (playerTransform == null) return;
 
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
 
-        if (navMeshAgent.velocity.magnitude > 0.1f) // Si el enemigo se mueve
-        {
-            animator.SetBool("isWalking", true);
-            animator.SetBool("isIdle", false);
-        }
-        else // Si el enemigo está quieto
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isIdle", true);
-        }
+        animator.SetBool("isWalking", speed > 0);
+        animator.SetBool("isIdle", speed == 0);
 
-        if (distanceToPlayer <= distanceToFollowPlayer && followPlayer)
+        if (isAttacking) return;
+
+        if (distanceToPlayer <= attackRange && Time.time - lastAttackTime >= attackCooldown)
+        {
+            StartCoroutine(AttackPlayer());
+        }
+        else if (distanceToPlayer <= distanceToFollowPlayer && followPlayer)
         {
             FollowPlayer();
         }
@@ -71,69 +79,23 @@ public class AI : MonoBehaviour
         {
             EnemyPath();
         }
-
-        // Verificar si el enemigo está cerca del jugador para iniciar el ataque
-        if (playerInRange && !isAttacking)  // Puedes ajustar la distancia de ataque
-        {
-            StartAttack();
-        }
-
-        //GrenadeImpact();
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-            playerCollider = other;  // Guardamos la referencia del jugador
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-            playerCollider = null;  // Quitamos la referencia del jugador
-        }
-    }
-
-    void StartAttack()
+    private IEnumerator AttackPlayer()
     {
         isAttacking = true;
+        navMeshAgent.velocity = Vector3.zero; // Asegura que se detenga
         navMeshAgent.isStopped = true;
-        animator.SetTrigger("Attack");  // Activar la animación de ataque
 
-        // Aplicar daño solo si el jugador sigue dentro del trigger
-        if (playerInRange && playerCollider != null)
-        {
-            GameManager.Instance.LoseHealth(5);
-        }
+        animator.SetTrigger("Attack");
 
-        // Llamamos a una función después de un breve retraso (duración del ataque)
-        Invoke("ApplyDamage", 2.667f); // Ajusta el tiempo según la animación del ataque
-        Invoke("FinishAttack", 2.667f);
-    }
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
-    void ApplyDamage()
-    {
-        if (playerInRange && playerCollider != null) // Solo si el jugador sigue en el rango
-        {
-            GameManager.Instance.LoseHealth(5);
-        }
-    }
+        GameManager.Instance.LoseHealth(attackDamage);
 
-    void FinishAttack()
-    {
+        yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
         navMeshAgent.isStopped = false;
-
-        if (navMeshAgent.velocity.magnitude > 0.1f)
-        {
-            animator.SetBool("isWalking", true);
-            animator.SetBool("isIdle", false);
-        }
     }
 
     public void EnemyPath()
@@ -144,24 +106,18 @@ public class AI : MonoBehaviour
 
         if (Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath)
         {
-            StartCoroutine(WaitAtDestination(2f)); // Espera 2 segundos al llegar a la destinación
+            StartCoroutine(WaitAtDestination(2f));
 
-            if (destinations[i] != destinations[destinations.Length -1])
-            {
-                i++;
-            }
-            else
-            {
-                i = 0;
-            }
+            if (i < destinations.Length - 1) i++;
+            else i = 0;
         }
     }
 
     public void FollowPlayer()
     {
-        if (!isAttacking) // No seguir al jugador mientras ataca
+        if (playerTransform != null)
         {
-            navMeshAgent.destination = player.transform.position;
+            navMeshAgent.destination = playerTransform.position;
         }
     }
 
@@ -179,5 +135,10 @@ public class AI : MonoBehaviour
 
         navMeshAgent.isStopped = false; // Reanuda el movimiento
         isWaiting = false; // Vuelve a permitir que el enemigo se mueva
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 }

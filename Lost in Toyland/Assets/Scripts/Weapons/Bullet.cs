@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     private float speed = 50f;
     private float timeToDestroy = 3f;
 
+    private Rigidbody rb;
+
     public Vector3 target { get; set; }
     public bool hit { get; set; }
 
@@ -29,8 +31,14 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Player"))
         {
+            return;
+        }
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
             return;
         }
 
@@ -39,10 +47,5 @@ public class Bullet : MonoBehaviour
 
         Destroy(contactDecal, 1f);
         Destroy(gameObject);
-
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(other.gameObject);
-        }
     }
 }

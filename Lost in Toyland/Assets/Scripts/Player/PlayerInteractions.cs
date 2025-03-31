@@ -82,11 +82,6 @@ public class PlayerInteractions : MonoBehaviour
             gameObject.transform.position = startPosition.position;
             GetComponent<CharacterController>().enabled = true;
         }
-
-        //if (other.gameObject.CompareTag("Enemy"))
-        //{
-        //    GameManager.Instance.LoseHealth(5);
-        //}
     }
 
     private void OnCollisionEnter(Collision collision)
