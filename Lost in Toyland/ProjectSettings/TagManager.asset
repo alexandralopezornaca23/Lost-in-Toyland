@@ -30,9 +30,9 @@ TagManager:
   - Obstacle
   - Weapon
   - Item
-  - RaycastDetect
+  - RaycastDetectDoorOpen
   - PlayerBullet
-  - 
+  - RaycastDetectDoorClose
   - 
   - 
   - 

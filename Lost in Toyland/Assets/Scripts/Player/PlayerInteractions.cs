@@ -7,26 +7,29 @@ public class PlayerInteractions : MonoBehaviour
     public Transform startPosition;
 
     //Objetos Interactivos
-    LayerMask mask;
-    public float distancia = 3f;
+    public LayerMask maskDoorOpen;
+    public LayerMask maskDoorClose;
+    public float distancia = 5f;
 
-    public Texture2D puntero;
-    public GameObject infoText;
-    GameObject lastDetected = null;
+    public GameObject infoTextOpenDoor;
+    public GameObject infoTextCloseDoor;
+    public GameObject lastDetected = null;
 
-    public LockedDoor door;    
+    public LockedDoor door;
 
-    private void Start()
+    private void Awake()
     {
-        mask = LayerMask.GetMask("RaycastDetect");
-        infoText.SetActive(false);
+
+        maskDoorClose = LayerMask.GetMask("RaycastDetectDoorClose");
+        maskDoorOpen = LayerMask.GetMask("RaycastDetectDoorOpen");
+        infoTextOpenDoor.SetActive(false);
+        infoTextCloseDoor.SetActive(false);
     }
 
     private void Update()
     {
         RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, distancia, mask))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, distancia, maskDoorOpen))
         {
             Deselect();
             SelectedObject(hit.transform);
@@ -35,7 +38,28 @@ public class PlayerInteractions : MonoBehaviour
             {
                 if (Keyboard.current.eKey.wasPressedThisFrame)
                 {
-                    hit.collider.transform.GetComponent<SystemDoor>().ChangeDoorState();
+                    hit.collider.transform.GetComponentInParent<SystemDoor>().ChangeDoorState();
+                }
+            }
+
+            if (hit.collider.tag == "DoorLocked" && door != null && door.isUnloocked)
+            {
+                if (Keyboard.current.eKey.wasPressedThisFrame)
+                {
+                    door.ChangeDoorState();
+                }
+            }
+        }
+        else if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, distancia, maskDoorClose))
+        {
+            Deselect();
+            SelectedObject(hit.transform);
+
+            if (hit.collider.tag == "Door")
+            {
+                if (Keyboard.current.eKey.wasPressedThisFrame)
+                {
+                    hit.collider.transform.GetComponentInParent<SystemDoor>().ChangeDoorState();
                 }
             }
 
@@ -94,31 +118,63 @@ public class PlayerInteractions : MonoBehaviour
 
     void SelectedObject(Transform transform)
     {
-        transform.GetComponentInChildren<MeshRenderer>().material.color = Color.magenta;
-        lastDetected = transform.gameObject;
+        if (transform.gameObject.layer == LayerMask.NameToLayer("RaycastDetectDoorOpen"))
+        {
+            MeshRenderer meshRenderer = transform.GetComponent<MeshRenderer>();
+
+            if (meshRenderer != null)
+            {
+                infoTextOpenDoor.SetActive(true);
+                meshRenderer.material.color = Color.green;
+                lastDetected = transform.gameObject;
+            }
+            else
+            {
+                meshRenderer = transform.GetComponentInChildren<MeshRenderer>();
+                infoTextOpenDoor.SetActive(true);
+                meshRenderer.material.color = Color.green;
+                lastDetected = transform.gameObject;
+            }
+        }
+        else if (transform.gameObject.layer == LayerMask.NameToLayer("RaycastDetectDoorClose"))
+        {
+            MeshRenderer meshRenderer = transform.GetComponent<MeshRenderer>();
+
+            if (meshRenderer != null)
+            {
+                infoTextCloseDoor.SetActive(true);
+                meshRenderer.material.color = Color.red;
+                lastDetected = transform.gameObject;
+            }
+            else
+            {
+                meshRenderer = transform.GetComponentInChildren<MeshRenderer>();
+                infoTextCloseDoor.SetActive(true);
+                meshRenderer.material.color = Color.red;
+                lastDetected = transform.gameObject;
+            }
+        }
     }
 
-    void Deselect()
+    public void Deselect()
     {
         if (lastDetected)
         {
-            lastDetected.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+            MeshRenderer meshRenderer = lastDetected.GetComponent<MeshRenderer>();
+
+            if (meshRenderer != null)
+            {
+                meshRenderer.material.color = Color.white;
+            }
+            else
+            {
+                meshRenderer = lastDetected.GetComponentInChildren<MeshRenderer>();
+                meshRenderer.material.color = Color.white;
+            }
+
+            infoTextOpenDoor.SetActive(false);
+            infoTextCloseDoor.SetActive(false);
             lastDetected = null;
-        }
-    }
-
-    void OnGUI()
-    {
-        Rect rect = new Rect(Screen.width / 2, Screen.height / 2, puntero.height, puntero.height);
-        GUI.DrawTexture(rect, puntero);
-
-        if (lastDetected)
-        {
-            infoText.SetActive(true);
-        }
-        else
-        {
-            infoText.SetActive(false);
         }
     }
 }

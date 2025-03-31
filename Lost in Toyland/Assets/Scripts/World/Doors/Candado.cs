@@ -1,42 +1,47 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Candado : MonoBehaviour
 {
     public string playerBulletLayer = "PlayerBullet"; // Capa con la que debe colisionar
-    public string animationTrigger = "Hit"; // El nombre del trigger de animación
+    public string animationTrigger = "Hit"; // El nombre del trigger de animaciÃ³n
+
+    public GameObject openDoor; // Prefab de la puerta abierta
+    public Transform destroyDoor; // Objeto de la puerta cerrada a destruir
     private Animator animator;
 
     void Start()
     {
-        // Obtener el componente Animator
         animator = GetComponent<Animator>();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        // Verificar si la colisión es con un objeto de la capa "PlayerBullet"
         if (collision.gameObject.layer == LayerMask.NameToLayer(playerBulletLayer))
         {
-            // Reproducir la animación
+            // Reproducir la animaciÃ³n del candado si tiene un Animator
             if (animator != null)
             {
                 animator.SetTrigger(animationTrigger);
             }
 
-            // Destruir este objeto
-            Destroy(gameObject);
-
-            // Activar el script del objeto padre
-            if (transform.parent != null)
+            // Destruir la puerta cerrada y reemplazarla por la puerta abierta
+            if (destroyDoor != null)
             {
-                var parentScript = transform.parent.GetComponent<SystemDoor>(); // Reemplaza "YourScript" con el script que deseas activar
-                if (parentScript != null)
+                Vector3 position = destroyDoor.position;
+                Quaternion rotation = destroyDoor.rotation;
+
+                Destroy(destroyDoor.gameObject); // Destruir la puerta cerrada
+
+                if (openDoor != null)
                 {
-                    parentScript.enabled = true; // Activar el script
+                    Instantiate(openDoor, position, rotation); // Instanciar la puerta abierta
                 }
             }
+
+            // Destruir el candado
+            Destroy(gameObject);
         }
     }
 }
