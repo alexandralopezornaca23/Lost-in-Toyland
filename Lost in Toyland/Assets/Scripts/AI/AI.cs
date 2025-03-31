@@ -10,6 +10,7 @@ public class AI : MonoBehaviour
     public Animator animator;
 
     public Transform[] destinations;
+    private bool isRotating = false; // Para evitar que se mueva mientras rota
 
     public float distanceToFollowPath = 2f;
 
@@ -53,7 +54,6 @@ public class AI : MonoBehaviour
         lastAttackTime = -attackCooldown;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerTransform == null) return;
@@ -63,7 +63,8 @@ public class AI : MonoBehaviour
         animator.SetFloat("Speed", speed);
 
         animator.SetBool("isWalking", speed > 0);
-        animator.SetBool("isIdle", speed == 0);
+        animator.SetBool("isWalking", speed > 0 && !isRotating);
+        animator.SetBool("isIdle", speed == 0 && !isRotating);
 
         if (isAttacking) return;
 
@@ -87,6 +88,11 @@ public class AI : MonoBehaviour
         navMeshAgent.velocity = Vector3.zero; // Asegura que se detenga
         navMeshAgent.isStopped = true;
 
+        // Girar el enemigo hacia el jugador antes de atacar
+        Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+        directionToPlayer.y = 0; // Evita que el enemigo se incline
+        transform.rotation = Quaternion.LookRotation(directionToPlayer);
+
         animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
@@ -100,17 +106,73 @@ public class AI : MonoBehaviour
 
     public void EnemyPath()
     {
-        if (isWaiting) return;
+        if (isWaiting || isRotating) return;
+
+        Vector3 directionToDestination = (destinations[i].position - transform.position).normalized;
+        directionToDestination.y = 0; // Evitar inclinaciones
+
+        // Si el enemigo aún no está mirando en la dirección correcta, gira antes de moverse
+        if (Vector3.Dot(transform.forward, directionToDestination) < 0.99f)
+        {
+            StartCoroutine(RotateTowardsDestination(directionToDestination, () => {navMeshAgent.destination = destinations[i].position;}));
+            return; // No mueve al enemigo hasta que termine de girar
+        }
 
         navMeshAgent.destination = destinations[i].position;
 
         if (Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath)
         {
             StartCoroutine(WaitAtDestination(2f));
-
-            if (i < destinations.Length - 1) i++;
-            else i = 0;
         }
+    }
+
+    // Corrutina para girar suavemente antes de moverse
+    private IEnumerator RotateTowardsDestination(Vector3 targetDirection, System.Action onRotationComplete)
+    {
+        isRotating = true;
+        navMeshAgent.isStopped = true; // Detener el movimiento mientras rota
+
+        animator.SetBool("isRotating", true); // Activar animación de giro
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            yield return null;
+        }
+
+        //Asegurar que la rotación finaliza exactamente en el ángulo correcto
+        transform.rotation = targetRotation;
+
+        animator.SetBool("isRotating", false);
+        navMeshAgent.isStopped = false;
+        isRotating = false;
+
+        onRotationComplete?.Invoke();
+    }
+
+    // Corrutina para esperar antes de ir al siguiente punto
+    private IEnumerator WaitAtDestination(float waitTime)
+    {
+        isWaiting = true;
+        navMeshAgent.isStopped = true;
+
+        yield return new WaitForSeconds(waitTime);
+
+        isWaiting = false;
+        navMeshAgent.isStopped = false;
+
+        // Mover al siguiente destino después de esperar
+        i = (i + 1) % destinations.Length;
+
+        // Asegurar que el nuevo destino se asigna correctamente
+        navMeshAgent.destination = destinations[i].position;
+
+        yield return null; // Esperar un frame antes de verificar el movimiento
+
+        // Llamar nuevamente a EnemyPath para reanudar el recorrido
+        EnemyPath();
     }
 
     public void FollowPlayer()
@@ -124,17 +186,6 @@ public class AI : MonoBehaviour
     public void GrenadeImpact()
     {
         Destroy(gameObject);
-    }
-
-    private IEnumerator WaitAtDestination(float waitTime)
-    {
-        isWaiting = true; // Activa el estado de espera
-        navMeshAgent.isStopped = true; // Detiene al agente
-
-        yield return new WaitForSeconds(waitTime); // Espera los segundos indicados
-
-        navMeshAgent.isStopped = false; // Reanuda el movimiento
-        isWaiting = false; // Vuelve a permitir que el enemigo se mueva
     }
 
     public void Death()
