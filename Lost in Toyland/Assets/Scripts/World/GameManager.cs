@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI ammoText;
+    public TextMeshProUGUI frozenAmmoText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI grenadeText;
 
     public static GameManager Instance { get; private set; }
 
     public int gunAmmo = 10;
+    public int frozenAmmo = 10;
     public int grenadeAmmo = 0;
     public int health = 100;
 
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         ammoText.text = gunAmmo.ToString();
+        frozenAmmoText.text = frozenAmmo.ToString();
         grenadeText.text = grenadeAmmo.ToString();
         healthText.text = health.ToString();
     }

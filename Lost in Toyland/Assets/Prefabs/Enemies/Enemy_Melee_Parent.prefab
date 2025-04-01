@@ -360,6 +360,14 @@ MonoBehaviour:
   distanceToFollowPath: 2
   followPlayer: 1
   distanceToFollowPlayer: 10
+  attackRange: 0.5
+  attackCooldown: 1
+  attackDamage: 10
+  playerTransform: {fileID: 0}
+  objectToActivate: {fileID: 0}
+  freezeEffectPrefab: {fileID: 195246288533921220, guid: ae965f0db821b9341a9a6aa1ae44a41e, type: 3}
+  isFrozen: 0
+  frozenOrbePrefab: {fileID: 6883753556797008042, guid: 007335bd31bf686488ad1ced4065c0a0, type: 3}
 --- !u!1 &8147587759963895112
 GameObject:
   m_ObjectHideFlags: 0

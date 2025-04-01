@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2160804124910072384}
   - component: {fileID: 3475621943859947646}
   - component: {fileID: 3560356350377573859}
-  - component: {fileID: 6443307643968557426}
+  - component: {fileID: 5671669976942489471}
   m_Layer: 13
-  m_Name: Bullet
+  m_Name: BulletFrozen
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0da916028d02b90409680b7ae2249e08, type: 2}
+  - {fileID: 2100000, guid: 5ab04a7f11231d5448a4a007d0a5ee7d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,7 +136,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6443307643968557426
+--- !u!114 &5671669976942489471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6082552167255848271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9e09d6b5cd8e8847a252811234b3bed, type: 3}
+  m_Script: {fileID: 11500000, guid: fdeebed8c2a4e834d877abe24b801f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDecal: {fileID: 5619557304173356185, guid: 12aa66ceb940ad241a7ef729c27893a9, type: 3}

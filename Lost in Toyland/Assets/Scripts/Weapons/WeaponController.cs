@@ -15,7 +15,8 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField]
     private GameObject bulletPrefab;
-    
+    private GameObject bulletFrozenPrefab;
+
     private PlayerController playerControllerBulletParent;
 
     [SerializeField]
@@ -27,7 +28,8 @@ public class WeaponController : MonoBehaviour
     public enum ShootMode
     {
         Single,
-        Auto
+        Auto,
+        Frozen
     }
     public ShootMode currentShotMode = ShootMode.Single;
 
@@ -70,12 +72,16 @@ public class WeaponController : MonoBehaviour
 
     private void OnShootAction(InputAction.CallbackContext context)
     {
+        if (playerControllerBulletParent.isPaused) return;
+
         shooting = true;
         Shoot();
     }
 
     private void Update()
     {
+        if (playerControllerBulletParent.isPaused) return;
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             shooting = true;
@@ -100,6 +106,9 @@ public class WeaponController : MonoBehaviour
                         break;
                     case ShootMode.Auto:
                         StartCoroutine(AutomaticShoot());
+                        break;
+                    case ShootMode.Frozen:
+                        ShootFrozenGun();
                         break;
                 }
             }
@@ -127,6 +136,30 @@ public class WeaponController : MonoBehaviour
             }
 
             GameManager.Instance.gunAmmo--;
+        }
+    }
+
+    private void ShootFrozenGun()
+    {
+        if (Time.time > shootRateTime && GameManager.Instance.frozenAmmo > 0)
+        {
+            audioSource.PlayOneShot(shootSound);
+            RaycastHit hit;
+            GameObject bullet = GameObject.Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity, playerControllerBulletParent.bulletParent);
+            BulletFrozen bulletController = bullet.GetComponent<BulletFrozen>();
+
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+            {
+                bulletController.target = hit.point;
+                bulletController.hit = true;
+            }
+            else
+            {
+                bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                bulletController.hit = false;
+            }
+
+            GameManager.Instance.frozenAmmo--;
         }
     }
 

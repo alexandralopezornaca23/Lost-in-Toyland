@@ -55,6 +55,14 @@ public class WeaponSwitch : MonoBehaviour
             playerController.animator.SetBool("EquipRifle", true);
             selectedWeapon = 2;
         }
+        if (Keyboard.current.digit4Key.wasPressedThisFrame && playerController.hasFrozenGun && weapons.Length >= 4)
+        {
+            playerController.jumpAnimation = Animator.StringToHash("PlayerJumpPistol");
+            playerController.animator.SetBool("EquipNonGun", false);
+            playerController.animator.SetBool("EquipPistol", true);
+            playerController.animator.SetBool("EquipRifle", false);
+            selectedWeapon = 3;
+        }
 
         if (previousWeapon != selectedWeapon)
         {

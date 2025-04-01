@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
+    public bool isPaused = false;
+
     public Transform spawnPoint;
 
     [SerializeField] private float playerSpeed = 4.5f;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
     public bool hasNonGun = true;
     public bool hasPistol = false;
     public bool hasRifle = false;
+    public bool hasFrozenGun = false;
 
     public Transform bulletParent;
 
@@ -75,7 +78,7 @@ public class PlayerController : MonoBehaviour
         if (spawnPoint != null)
         {
             transform.position = spawnPoint.position;
-            transform.rotation = spawnPoint.rotation; // Hace que mire en la dirección del SpawnPoint
+            transform.rotation = spawnPoint.rotation;
         }
 
         staminaSlider = FindFirstObjectByType<StaminaBar>();
@@ -88,6 +91,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (isPaused) return;
+
         GunLogic();
         RunCheck();
 
@@ -97,7 +102,6 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
             animator.SetBool("isJumping", false);
 
-            // Verifica si el jugador sigue moviéndose
             if (currentAnimationBlendVector.magnitude > 0.1f)
             {
                 animator.SetFloat(moveXAnimationParametrerID, currentAnimationBlendVector.x);
@@ -117,11 +121,9 @@ public class PlayerController : MonoBehaviour
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed * sprintSpeed);
 
-        //Blend Strafe Animation
         animator.SetFloat(moveXAnimationParametrerID, currentAnimationBlendVector.x);
         animator.SetFloat(moveZAnimationParametrerID, currentAnimationBlendVector.y);
 
-        // Makes the player jump
         if (jumpAction.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
@@ -129,18 +131,16 @@ public class PlayerController : MonoBehaviour
 
             if (isSprinting && groundedPlayer)
             {
-                animator.SetBool("isSprinting", false);  // Desactivar la animación de sprint
-                animator.SetTrigger("jumpWhileSprinting");  // Activar el trigger de salto mientras esprinta
+                animator.SetBool("isSprinting", false);
+                animator.SetTrigger("jumpWhileSprinting");
             }
         }
 
-        // Al aterrizar, se debe asegurar que la animación de salto se desactive correctamente
         if (groundedPlayer && playerVelocity.y < 0)
         {
-            playerVelocity.y = 0f;  // Resetear la velocidad vertical
-            animator.SetBool("isJumping", false);  // Desactivar animación de salto
+            playerVelocity.y = 0f;
+            animator.SetBool("isJumping", false);
 
-            // Reanudar animación de movimiento o esprint si es necesario
             if (currentAnimationBlendVector.magnitude > 0.1f)
             {
                 animator.SetFloat(moveXAnimationParametrerID, currentAnimationBlendVector.x);
@@ -156,7 +156,6 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        //rotate towards camera direction
         Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
@@ -186,6 +185,8 @@ public class PlayerController : MonoBehaviour
 
     public void GunLogic()
     {
+        if (isPaused) return;
+
         if (nearItem != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
             GameObject instantiatedItem;
@@ -205,12 +206,18 @@ public class PlayerController : MonoBehaviour
                 instantiatedItem.transform.parent = itemSlot[2].transform;
                 hasRifle = true;
             }
+            else if (nearItem.gameObject.CompareTag("FrozenGun"))
+            {
+                instantiatedItem = Instantiate(itemPrefab[3], itemSlot[3].transform.position, itemSlot[3].transform.rotation);
+                Destroy(nearItem.gameObject);
+                instantiatedItem.transform.parent = itemSlot[3].transform;
+                hasFrozenGun = true;
+            }
             else
             {
                 return;
             }
 
-            // Asignar el PlayerInput al arma
             weaponController = instantiatedItem.GetComponent<WeaponController>();
             if (weaponController != null)
             {

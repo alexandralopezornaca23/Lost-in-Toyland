@@ -81,8 +81,22 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GunAmmo"))
         {
-            GameManager.Instance.gunAmmo += other.gameObject.GetComponent<AmmoBox>().ammo;
-            Destroy(other.gameObject);
+            AmmoBox ammoBox = other.gameObject.GetComponent<AmmoBox>();
+            if (ammoBox != null)
+            {
+                GameManager.Instance.gunAmmo += ammoBox.ammo;
+                Destroy(other.gameObject);
+            }
+        }
+
+        if (other.gameObject.CompareTag("FrozenGunAmmo"))
+        {
+            FrozenOrbe frozenAmmo = other.gameObject.GetComponent<FrozenOrbe>();
+            if (frozenAmmo != null)
+            {
+                GameManager.Instance.frozenAmmo += frozenAmmo.frozenAmmo;
+                Destroy(other.gameObject);
+            }
         }
 
         if (other.gameObject.CompareTag("Grenade"))
@@ -99,7 +113,6 @@ public class PlayerInteractions : MonoBehaviour
 
         if (other.gameObject.CompareTag("DeathFloor"))
         {
-            //Perder vida, respawnear a nuestro personaje
             GameManager.Instance.LoseHealth(50);
 
             GetComponent<CharacterController>().enabled = false;

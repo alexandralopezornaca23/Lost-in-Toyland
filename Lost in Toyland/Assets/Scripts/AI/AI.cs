@@ -6,15 +6,16 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
+    private Rigidbody rb;
 
     public Animator animator;
 
     public Transform[] destinations;
-    private bool isRotating = false; // Para evitar que se mueva mientras rota
+    private bool isRotating = false;
 
     public float distanceToFollowPath = 2f;
 
-    private int i = 0; // posicion de inicio del array
+    private int i = 0;
 
     private bool isWaiting = false;
     private bool isAttacking = false;
@@ -27,18 +28,31 @@ public class AI : MonoBehaviour
     public float distanceToFollowPlayer = 10f;
 
     float distanceToPlayer;
-    public float attackRange = 0.5f; // Rango de ataque del enemigo
-    public float attackCooldown = 1f; // Tiempo entre ataques
-    public int attackDamage = 10; // Daño que inflige el enemigo
-    public Transform playerTransform; // Referencia al jugador
-    private float lastAttackTime; // Control de tiempo para ataques
+    public float attackRange = 0.5f;
+    public float attackCooldown = 1f;
+    public int attackDamage = 10;
+    public Transform playerTransform;
+    private float lastAttackTime;
 
     public GameObject objectToActivate = null;
 
+    [SerializeField]
+    private GameObject freezeEffectPrefab;
+    public bool isFrozen = false;
+    private float frozenTime = 3f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    private GameObject frozenOrbePrefab;
+
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.useGravity = true;
+        }
+
         if (destinations == null || destinations.Length == 0)
         {
             enabled = false;
@@ -59,6 +73,7 @@ public class AI : MonoBehaviour
 
     void Update()
     {
+        if (isFrozen) return;
         if (playerTransform == null) return;
 
         distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
@@ -88,12 +103,11 @@ public class AI : MonoBehaviour
     private IEnumerator AttackPlayer()
     {
         isAttacking = true;
-        navMeshAgent.velocity = Vector3.zero; // Asegura que se detenga
+        navMeshAgent.velocity = Vector3.zero;
         navMeshAgent.isStopped = true;
 
-        // Girar el enemigo hacia el jugador antes de atacar
         Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-        directionToPlayer.y = 0; // Evita que el enemigo se incline
+        directionToPlayer.y = 0;
         transform.rotation = Quaternion.LookRotation(directionToPlayer);
 
         animator.SetTrigger("Attack");
@@ -115,13 +129,12 @@ public class AI : MonoBehaviour
         if (isWaiting || isRotating) return;
 
         Vector3 directionToDestination = (destinations[i].position - transform.position).normalized;
-        directionToDestination.y = 0; // Evitar inclinaciones
+        directionToDestination.y = 0;
 
-        // Si el enemigo aún no está mirando en la dirección correcta, gira antes de moverse
         if (Vector3.Dot(transform.forward, directionToDestination) < 0.99f)
         {
             StartCoroutine(RotateTowardsDestination(directionToDestination, () => {navMeshAgent.destination = destinations[i].position;}));
-            return; // No mueve al enemigo hasta que termine de girar
+            return;
         }
 
         navMeshAgent.destination = destinations[i].position;
@@ -132,13 +145,12 @@ public class AI : MonoBehaviour
         }
     }
 
-    // Corrutina para girar suavemente antes de moverse
     private IEnumerator RotateTowardsDestination(Vector3 targetDirection, System.Action onRotationComplete)
     {
         isRotating = true;
-        navMeshAgent.isStopped = true; // Detener el movimiento mientras rota
+        navMeshAgent.isStopped = true;
 
-        animator.SetBool("isRotating", true); // Activar animación de giro
+        animator.SetBool("isRotating", true);
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
@@ -148,7 +160,6 @@ public class AI : MonoBehaviour
             yield return null;
         }
 
-        //Asegurar que la rotación finaliza exactamente en el ángulo correcto
         transform.rotation = targetRotation;
 
         animator.SetBool("isRotating", false);
@@ -158,7 +169,6 @@ public class AI : MonoBehaviour
         onRotationComplete?.Invoke();
     }
 
-    // Corrutina para esperar antes de ir al siguiente punto
     private IEnumerator WaitAtDestination(float waitTime)
     {
         isWaiting = true;
@@ -169,15 +179,12 @@ public class AI : MonoBehaviour
         isWaiting = false;
         navMeshAgent.isStopped = false;
 
-        // Mover al siguiente destino después de esperar
         i = (i + 1) % destinations.Length;
 
-        // Asegurar que el nuevo destino se asigna correctamente
         navMeshAgent.destination = destinations[i].position;
 
-        yield return null; // Esperar un frame antes de verificar el movimiento
-
-        // Llamar nuevamente a EnemyPath para reanudar el recorrido
+        yield return null; 
+        
         EnemyPath();
     }
 
@@ -201,6 +208,52 @@ public class AI : MonoBehaviour
             objectToActivate.SetActive(true);
         }
 
+        if (frozenOrbePrefab != null)
+        {
+            Instantiate(frozenOrbePrefab, transform.position, Quaternion.identity);
+        }
+
         Destroy(gameObject);
+    }
+
+    public void Frozen()
+    {
+        GameObject freezeEffect = Instantiate(freezeEffectPrefab, transform.position, Quaternion.identity);
+        Destroy(freezeEffect, frozenTime);
+        if (!isFrozen)
+        {
+            StartCoroutine(FreezeCoroutine());
+        }
+    }
+
+    private IEnumerator FreezeCoroutine()
+    {
+        isFrozen = true;
+        followPlayer = false;
+
+        navMeshAgent.enabled = false;
+
+        animator.enabled = false;
+
+        if (rb != null)
+        {
+            rb.useGravity = true;  
+            rb.isKinematic = true; 
+        }
+
+        animator.SetBool("isIdle", true);
+
+        yield return new WaitForSeconds(frozenTime);
+
+        if (rb != null)
+        {
+            rb.isKinematic = false;  
+            rb.useGravity = true;    
+        }
+
+        navMeshAgent.enabled = true;
+        animator.enabled = true;
+        followPlayer = true;
+        isFrozen = false;
     }
 }

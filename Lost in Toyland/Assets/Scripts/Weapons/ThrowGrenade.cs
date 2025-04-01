@@ -9,6 +9,8 @@ public class ThrowGrenade : MonoBehaviour
 
     void Update()
     {
+        if (FindFirstObjectByType<PlayerController>().isPaused == true) return;
+
         if (Keyboard.current.cKey.wasPressedThisFrame && GameManager.Instance.grenadeAmmo > 0)
         {
             Throw();

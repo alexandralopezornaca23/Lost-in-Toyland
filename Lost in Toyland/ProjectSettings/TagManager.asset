@@ -19,6 +19,8 @@ TagManager:
   - DoorLocked
   - PlayerBullet
   - Ground
+  - FrozenGun
+  - FrozenGunAmmo
   layers:
   - Default
   - TransparentFX

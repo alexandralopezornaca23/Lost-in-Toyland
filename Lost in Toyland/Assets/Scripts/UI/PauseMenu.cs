@@ -31,6 +31,8 @@ public class PauseMenu : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            FindFirstObjectByType<PlayerController>().isPaused = true;
         }
         else
         {
@@ -40,6 +42,8 @@ public class PauseMenu : MonoBehaviour
             cinemachineBrain.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            FindFirstObjectByType<PlayerController>().isPaused = false;
         }
     }
 
@@ -51,6 +55,7 @@ public class PauseMenu : MonoBehaviour
         playerInput.enabled = true;
         cinemachineBrain.enabled = true;
 
+        FindFirstObjectByType<PlayerController>().isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
