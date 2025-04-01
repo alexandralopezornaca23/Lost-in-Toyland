@@ -1,33 +1,74 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject pausePanel;
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider sfxVolumeSlider;
 
-    private bool isPaused = false;
-
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if (Keyboard.current.pKey.wasPressedThisFrame)
+        Invoke(nameof(PlayMusic), 0.1f);
+
+        if (musicVolumeSlider != null)
         {
-            isPaused = !isPaused;
-            PauseGame();
+            float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+            musicVolumeSlider.value = savedVolume;
+            musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        }
+
+        if (sfxVolumeSlider != null)
+        {
+            float savedVolume = PlayerPrefs.GetFloat("SoundVolume", 1f);
+            sfxVolumeSlider.value = savedVolume;
+            sfxVolumeSlider.onValueChanged.AddListener(SetSfxVolume);
         }
     }
 
-    public void PauseGame()
+    public void Play()
     {
-        if (isPaused)
+        LevelManager.Instance.LoadScene("Level_1", "CrossFade");
+        MusicManager.Instance.PlayMusic("Level1");
+    }
+
+    public void OnVolumeChanged(float volume)
+    {
+        MusicManager.Instance.SetVolume(volume);
+    }
+
+    public void GoMainMenu()
+    {
+        Time.timeScale = 1;
+        LevelManager.Instance.LoadScene("MainMenu", "CrossFade");
+        MusicManager.Instance.PlayMusic("MainMenu");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    void PlayMusic()
+    {
+        MusicManager.Instance?.PlayMusic("MainMenu");
+    }
+
+    private void SetMusicVolume(float volume)
+    {
+        if (MusicManager.Instance != null)
         {
-            Time.timeScale = 0;
-            pausePanel.SetActive(true);
+            MusicManager.Instance.SetVolume(volume);
         }
-        else
+    }
+
+    private void SetSfxVolume(float volume)
+    {
+        if (SoundManager.Instance != null)
         {
-            Time.timeScale = 1;
-            pausePanel.SetActive(false);
+            SoundManager.Instance.SetVolume(volume);
         }
     }
 }
