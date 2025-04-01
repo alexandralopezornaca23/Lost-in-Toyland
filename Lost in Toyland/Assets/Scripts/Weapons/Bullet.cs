@@ -37,8 +37,10 @@ public class Bullet : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Enemy"))
         {
+            AI enemyAI = other.gameObject.GetComponent<AI>();
+            enemyAI.Death();
             Destroy(gameObject);
-            Destroy(other.gameObject);
+
             return;
         }
 

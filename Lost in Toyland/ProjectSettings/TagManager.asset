@@ -17,6 +17,8 @@ TagManager:
   - DoorSoundOpen
   - DoorSoundClose
   - DoorLocked
+  - PlayerBullet
+  - Ground
   layers:
   - Default
   - TransparentFX

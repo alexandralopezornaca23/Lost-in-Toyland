@@ -26,11 +26,14 @@ public class AI : MonoBehaviour
 
     public float distanceToFollowPlayer = 10f;
 
-    public float attackRange = 2f; // Rango de ataque del enemigo
+    float distanceToPlayer;
+    public float attackRange = 0.5f; // Rango de ataque del enemigo
     public float attackCooldown = 1f; // Tiempo entre ataques
     public int attackDamage = 10; // Daño que inflige el enemigo
     public Transform playerTransform; // Referencia al jugador
     private float lastAttackTime; // Control de tiempo para ataques
+
+    public GameObject objectToActivate = null;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,7 +61,7 @@ public class AI : MonoBehaviour
     {
         if (playerTransform == null) return;
 
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
 
@@ -97,7 +100,10 @@ public class AI : MonoBehaviour
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
-        GameManager.Instance.LoseHealth(attackDamage);
+        if (distanceToPlayer <= attackRange)
+        {
+            GameManager.Instance.LoseHealth(attackDamage);
+        }
 
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
@@ -190,6 +196,11 @@ public class AI : MonoBehaviour
 
     public void Death()
     {
+        if (objectToActivate != null)
+        {
+            objectToActivate.SetActive(true);
+        }
+
         Destroy(gameObject);
     }
 }

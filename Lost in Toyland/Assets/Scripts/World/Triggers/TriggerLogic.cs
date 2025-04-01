@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TriggerLogic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject enemyToEnable;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player")) // Comparación corregida
+        {
+            if (enemyToEnable != null)
+            {
+                enemyToEnable.SetActive(true); // Activa el enemigo
+            }
+            Destroy(gameObject); // Destruye este objeto
+        }
     }
 }
