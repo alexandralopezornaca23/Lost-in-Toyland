@@ -6,10 +6,12 @@ public class PlayerInteractions : MonoBehaviour
 {
     public Transform startPosition;
 
-    //Objetos Interactivos
     public LayerMask maskDoorOpen;
     public LayerMask maskDoorClose;
     public float distancia = 5f;
+
+    public GameObject infoPickUpItem;
+    private GameObject nearbyObject = null;
 
     public GameObject infoTextOpenDoor;
     public GameObject infoTextCloseDoor;
@@ -24,6 +26,7 @@ public class PlayerInteractions : MonoBehaviour
         maskDoorOpen = LayerMask.GetMask("RaycastDetectDoorOpen");
         infoTextOpenDoor.SetActive(false);
         infoTextCloseDoor.SetActive(false);
+        infoPickUpItem.SetActive(false);
     }
 
     private void Update()
@@ -75,40 +78,19 @@ public class PlayerInteractions : MonoBehaviour
         {
             Deselect();
         }
+
+        if (nearbyObject != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            PickUpItem(nearbyObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("GunAmmo"))
+        if (other.CompareTag("GunAmmo") || other.CompareTag("FrozenGunAmmo") || other.CompareTag("Grenade") || other.CompareTag("HealthObject"))
         {
-            AmmoBox ammoBox = other.gameObject.GetComponent<AmmoBox>();
-            if (ammoBox != null)
-            {
-                GameManager.Instance.gunAmmo += ammoBox.ammo;
-                Destroy(other.gameObject);
-            }
-        }
-
-        if (other.gameObject.CompareTag("FrozenGunAmmo"))
-        {
-            FrozenOrbe frozenAmmo = other.gameObject.GetComponent<FrozenOrbe>();
-            if (frozenAmmo != null)
-            {
-                GameManager.Instance.frozenAmmo += frozenAmmo.frozenAmmo;
-                Destroy(other.gameObject);
-            }
-        }
-
-        if (other.gameObject.CompareTag("Grenade"))
-        {
-            GameManager.Instance.grenadeAmmo += other.gameObject.GetComponent<GrenadeObject>().grenade;
-            Destroy(other.gameObject);
-        }
-
-        if (other.gameObject.CompareTag("HealthObject"))
-        {
-            GameManager.Instance.AddHealth(other.gameObject.GetComponent<HealthObject>().health);
-            Destroy(other.gameObject);
+            infoPickUpItem.SetActive(true);
+            nearbyObject = other.gameObject;
         }
 
         if (other.gameObject.CompareTag("DeathFloor"))
@@ -118,6 +100,29 @@ public class PlayerInteractions : MonoBehaviour
             GetComponent<CharacterController>().enabled = false;
             gameObject.transform.position = startPosition.position;
             GetComponent<CharacterController>().enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("GunAmmo"))
+        {
+            infoPickUpItem.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("FrozenGunAmmo"))
+        {           
+            infoPickUpItem.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Grenade"))
+        {
+            infoPickUpItem.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("HealthObject"))
+        {
+            infoPickUpItem.SetActive(false);
         }
     }
 
@@ -189,5 +194,29 @@ public class PlayerInteractions : MonoBehaviour
             infoTextCloseDoor.SetActive(false);
             lastDetected = null;
         }
+    }
+
+    void PickUpItem(GameObject item)
+    {
+        if (item.CompareTag("GunAmmo"))
+        {
+            GameManager.Instance.gunAmmo += item.GetComponent<AmmoBox>().ammo;
+        }
+        else if (item.CompareTag("FrozenGunAmmo"))
+        {
+            GameManager.Instance.frozenAmmo += item.GetComponent<FrozenOrbe>().frozenAmmo;
+        }
+        else if (item.CompareTag("Grenade"))
+        {
+            GameManager.Instance.grenadeAmmo += item.GetComponent<GrenadeObject>().grenade;
+        }
+        else if (item.CompareTag("HealthObject"))
+        {
+            GameManager.Instance.AddHealth(item.GetComponent<HealthObject>().health);
+        }
+
+        Destroy(item);
+        infoPickUpItem.SetActive(false);
+        nearbyObject = null;
     }
 }

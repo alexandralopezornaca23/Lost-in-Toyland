@@ -27,12 +27,12 @@ public class AI : MonoBehaviour
 
     public float distanceToFollowPlayer = 10f;
 
-    float distanceToPlayer;
     public float attackRange = 0.5f;
     public float attackCooldown = 1f;
     public int attackDamage = 10;
     public Transform playerTransform;
     private float lastAttackTime;
+    private bool playerInAttackZone = false;
 
     public GameObject objectToActivate = null;
 
@@ -44,14 +44,12 @@ public class AI : MonoBehaviour
     [SerializeField]
     private GameObject frozenOrbePrefab;
 
+    private bool isDead = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        if (rb != null)
-        {
-            rb.useGravity = true;
-        }
+        if (rb != null) rb.useGravity = true;
 
         if (destinations == null || destinations.Length == 0)
         {
@@ -61,11 +59,7 @@ public class AI : MonoBehaviour
 
         navMeshAgent.destination = destinations[i].transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player)
-        {
-            playerTransform = player.transform;
-        }
+        if (player) playerTransform = player.transform;
 
         animator = GetComponent<Animator>();
         lastAttackTime = -attackCooldown;
@@ -73,48 +67,54 @@ public class AI : MonoBehaviour
 
     void Update()
     {
-        if (isFrozen) return;
-        if (playerTransform == null) return;
+        if (isDead || isFrozen || playerTransform == null) return;
 
-        distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
-
-        animator.SetBool("isWalking", speed > 0);
         animator.SetBool("isWalking", speed > 0 && !isRotating);
         animator.SetBool("isIdle", speed == 0 && !isRotating);
 
         if (isAttacking) return;
 
-        if (distanceToPlayer <= attackRange && Time.time - lastAttackTime >= attackCooldown)
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (playerInAttackZone && Time.time - lastAttackTime >= attackCooldown)
         {
             StartCoroutine(AttackPlayer());
         }
-        else if (distanceToPlayer <= distanceToFollowPlayer && followPlayer)
+        else if (!playerInAttackZone && followPlayer && distanceToPlayer <= distanceToFollowPlayer)
         {
             FollowPlayer();
         }
-        else
+        else if (!isWaiting && isDead == false)
         {
             EnemyPath();
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) playerInAttackZone = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player")) playerInAttackZone = false;
+    }
+
     private IEnumerator AttackPlayer()
     {
+        if (!playerInAttackZone) yield break;
+
         isAttacking = true;
-        navMeshAgent.velocity = Vector3.zero;
         navMeshAgent.isStopped = true;
 
-        Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-        directionToPlayer.y = 0;
-        transform.rotation = Quaternion.LookRotation(directionToPlayer);
-
         animator.SetTrigger("Attack");
+        SoundManager.Instance.PlaySound2D("EnemyAttack");
 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
-        if (distanceToPlayer <= attackRange)
+        if (playerInAttackZone)
         {
             GameManager.Instance.LoseHealth(attackDamage);
         }
@@ -122,38 +122,39 @@ public class AI : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
         navMeshAgent.isStopped = false;
+
+        if (playerInAttackZone)
+        {
+            yield return StartCoroutine(SmoothLookAt(playerTransform.position));
+            FollowPlayer();
+        }
+        else
+        {
+            yield return StartCoroutine(SmoothLookAt(destinations[i].position));
+            EnemyPath();
+        }
     }
 
-    public void EnemyPath()
+    public void FollowPlayer()
     {
-        if (isWaiting || isRotating) return;
-
-        Vector3 directionToDestination = (destinations[i].position - transform.position).normalized;
-        directionToDestination.y = 0;
-
-        if (Vector3.Dot(transform.forward, directionToDestination) < 0.99f)
+        if (playerTransform != null)
         {
-            StartCoroutine(RotateTowardsDestination(directionToDestination, () => {navMeshAgent.destination = destinations[i].position;}));
-            return;
+            navMeshAgent.destination = playerTransform.position;
+            StartCoroutine(SmoothLookAt(playerTransform.position));
         }
-
-        navMeshAgent.destination = destinations[i].position;
-
-        if (Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath)
+        else
         {
-            StartCoroutine(WaitAtDestination(2f));
+            EnemyPath();
         }
     }
 
-    private IEnumerator RotateTowardsDestination(Vector3 targetDirection, System.Action onRotationComplete)
+    private IEnumerator SmoothLookAt(Vector3 targetPosition)
     {
         isRotating = true;
-        navMeshAgent.isStopped = true;
+        Vector3 direction = (targetPosition - transform.position).normalized;
+        direction.y = 0;
 
-        animator.SetBool("isRotating", true);
-
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
         while (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
@@ -161,12 +162,18 @@ public class AI : MonoBehaviour
         }
 
         transform.rotation = targetRotation;
-
-        animator.SetBool("isRotating", false);
-        navMeshAgent.isStopped = false;
         isRotating = false;
+    }
 
-        onRotationComplete?.Invoke();
+    public void EnemyPath()
+    {
+        navMeshAgent.destination = destinations[i].position;
+        StartCoroutine(SmoothLookAt(destinations[i].position));
+
+        if (!isWaiting && Vector3.Distance(transform.position, destinations[i].position) <= distanceToFollowPath)
+        {
+            StartCoroutine(WaitAtDestination(2f));
+        }
     }
 
     private IEnumerator WaitAtDestination(float waitTime)
@@ -180,19 +187,11 @@ public class AI : MonoBehaviour
         navMeshAgent.isStopped = false;
 
         i = (i + 1) % destinations.Length;
-
         navMeshAgent.destination = destinations[i].position;
 
-        yield return null; 
-        
-        EnemyPath();
-    }
-
-    public void FollowPlayer()
-    {
-        if (playerTransform != null)
+        if (!followPlayer)
         {
-            navMeshAgent.destination = playerTransform.position;
+            EnemyPath();
         }
     }
 
@@ -203,27 +202,38 @@ public class AI : MonoBehaviour
 
     public void Death()
     {
-        if (objectToActivate != null)
+        if (objectToActivate != null) objectToActivate.SetActive(true);
+
+        StartCoroutine(TimeDeathAnimation());
+        SoundManager.Instance.PlaySound2D("EnemyHit");
+    }
+
+    private IEnumerator TimeDeathAnimation()
+    {
+        isDead = true;
+        followPlayer = false;
+        Collider collider = GetComponent<Collider>();
+        if (collider != null)
         {
-            objectToActivate.SetActive(true);
+            collider.enabled = false;
         }
 
-        if (frozenOrbePrefab != null)
+        if (rb != null)
         {
-            Instantiate(frozenOrbePrefab, transform.position, Quaternion.identity);
+            rb.isKinematic = true;
+            rb.useGravity = false;
         }
+
+        navMeshAgent.isStopped = true;
+        animator.SetTrigger("isDeath");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 3);
 
         Destroy(gameObject);
     }
 
     public void Frozen()
     {
-        GameObject freezeEffect = Instantiate(freezeEffectPrefab, transform.position, Quaternion.identity);
-        Destroy(freezeEffect, frozenTime);
-        if (!isFrozen)
-        {
-            StartCoroutine(FreezeCoroutine());
-        }
+        if (!isFrozen) StartCoroutine(FreezeCoroutine());
     }
 
     private IEnumerator FreezeCoroutine()
@@ -231,27 +241,29 @@ public class AI : MonoBehaviour
         isFrozen = true;
         followPlayer = false;
 
-        navMeshAgent.enabled = false;
-
-        animator.enabled = false;
-
         if (rb != null)
         {
-            rb.useGravity = true;  
-            rb.isKinematic = true; 
+            rb.useGravity = false;
+            rb.isKinematic = true;
         }
 
-        animator.SetBool("isIdle", true);
+        navMeshAgent.isStopped = true;
+        animator.enabled = false;
+
+        Transform freezePoint = transform.Find("FreezePoint");
+        Vector3 effectPosition = freezePoint != null ? freezePoint.position : transform.position;
+        GameObject freezeEffect = Instantiate(freezeEffectPrefab, effectPosition, Quaternion.identity, freezePoint);
+        Destroy(freezeEffect, frozenTime);
 
         yield return new WaitForSeconds(frozenTime);
 
         if (rb != null)
         {
-            rb.isKinematic = false;  
-            rb.useGravity = true;    
+            rb.isKinematic = false;
+            rb.useGravity = true;
         }
 
-        navMeshAgent.enabled = true;
+        navMeshAgent.isStopped = false;
         animator.enabled = true;
         followPlayer = true;
         isFrozen = false;

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,11 @@ public class PlayerController : MonoBehaviour
     private InputAction jumpAction;
     private InputAction sprintAction;
 
+    //sounds
+    private float stepTimer = 0f;
+    [SerializeField] private float stepInterval = 0.5f;
+    private bool wasGroundedLastFrame = true;
+
     public Animator animator;
     int moveXAnimationParametrerID;
     int moveZAnimationParametrerID;
@@ -42,6 +48,8 @@ public class PlayerController : MonoBehaviour
     private StaminaBar staminaSlider;
 
     //GunsWeapons
+    public GameObject infoPickUpWeapon;
+
     public bool hasNonGun = true;
     public bool hasPistol = false;
     public bool hasRifle = false;
@@ -71,6 +79,8 @@ public class PlayerController : MonoBehaviour
         jumpAnimation = Animator.StringToHash("PlayerJump");
         moveXAnimationParametrerID = Animator.StringToHash("MoveX");
         moveZAnimationParametrerID = Animator.StringToHash("MoveZ");
+
+        infoPickUpWeapon.SetActive(false);
     }
 
     private void Start()
@@ -93,6 +103,15 @@ public class PlayerController : MonoBehaviour
     {
         if (isPaused) return;
 
+        groundedPlayer = controller.isGrounded;
+
+        if (groundedPlayer && !wasGroundedLastFrame)
+        {
+            StartCoroutine(PlayLandingSound());
+        }
+
+        wasGroundedLastFrame = groundedPlayer;
+
         GunLogic();
         RunCheck();
 
@@ -104,17 +123,26 @@ public class PlayerController : MonoBehaviour
 
             if (currentAnimationBlendVector.magnitude > 0.1f)
             {
+                stepTimer += Time.deltaTime;
+                if (stepTimer >= stepInterval)
+                {
+                    string soundToPlay = isSprinting ? "PlayerRunSteps" : "PlayerWalkSteps";
+                    SoundManager.Instance.PlaySound2D(soundToPlay);
+                    stepTimer = 0f;
+                }
+
                 animator.SetFloat(moveXAnimationParametrerID, currentAnimationBlendVector.x);
                 animator.SetFloat(moveZAnimationParametrerID, currentAnimationBlendVector.y);
             }
             else
             {
+                stepTimer = 0f;
                 animator.SetFloat(moveXAnimationParametrerID, 0);
                 animator.SetFloat(moveZAnimationParametrerID, 0);
             }
         }
 
-        Vector2 input =moveAction.ReadValue<Vector2>();
+        Vector2 input = moveAction.ReadValue<Vector2>();
         currentAnimationBlendVector = Vector2.SmoothDamp(currentAnimationBlendVector, input, ref animationVelocity, animationSmoothTime);
         Vector3 move = new Vector3(currentAnimationBlendVector.x, 0, currentAnimationBlendVector.y);
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
@@ -134,12 +162,15 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isSprinting", false);
                 animator.SetTrigger("jumpWhileSprinting");
             }
+            SoundManager.Instance.PlaySound2D("PlayerJump");
         }
 
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
             animator.SetBool("isJumping", false);
+
+            StartCoroutine(PlayLandingSound());
 
             if (currentAnimationBlendVector.magnitude > 0.1f)
             {
@@ -149,7 +180,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 animator.SetFloat(moveXAnimationParametrerID, 0);
-                animator.SetFloat(moveZAnimationParametrerID, 0);
+                animator.SetFloat(moveZAnimationParametrerID, 0);                
             }
         }
 
@@ -181,6 +212,12 @@ public class PlayerController : MonoBehaviour
         }
 
         sprintSpeed = isSprinting ? sprintingSpeedMultiplier : 1f;
+    }
+
+    IEnumerator PlayLandingSound()
+    {
+        SoundManager.Instance.PlaySound2D("PlayerLand");
+        yield return new WaitForSeconds(0.2f);
     }
 
     public void GunLogic()
@@ -225,6 +262,7 @@ public class PlayerController : MonoBehaviour
             }
 
             nearItem = null;
+            infoPickUpWeapon.SetActive(false);
         }
     }
 
@@ -233,6 +271,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
         {
             nearItem = other.gameObject;
+            infoPickUpWeapon.SetActive(true);
         }
     }
 
@@ -241,6 +280,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
         {
             nearItem = null;
+            infoPickUpWeapon.SetActive(false);
         }
     }
 }

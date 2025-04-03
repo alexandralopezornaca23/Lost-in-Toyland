@@ -38,7 +38,7 @@ public class BulletFrozen : MonoBehaviour
         else if (other.gameObject.CompareTag("Enemy"))
         {
             AI enemyAI = other.gameObject.GetComponent<AI>();
-            if (enemyAI != null)
+            if (enemyAI != null && !enemyAI.isFrozen)
             {
                 enemyAI.Frozen();
             }            

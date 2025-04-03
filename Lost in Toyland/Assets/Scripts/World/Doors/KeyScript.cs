@@ -1,8 +1,11 @@
 using UnityEngine;
+using TMPro;
 
 public class KeyScript : MonoBehaviour
 {
     public LockedDoor doorToOpen;
+    public GameObject textToActivate;
+    public TMP_Text keyCounterText;
     private static int keysCollected = 0;
 
     private void OnTriggerEnter(Collider other)
@@ -11,10 +14,19 @@ public class KeyScript : MonoBehaviour
         {
             keysCollected++;
 
+            if (keyCounterText != null)
+            {
+                keyCounterText.text = keysCollected.ToString();
+            }
+
             if (keysCollected >= 3)
             {
                 doorToOpen.isUnloocked = true;
-                Debug.Log("La puerta ha sido desbloqueada.");
+            }
+
+            if (textToActivate != null)
+            {
+                textToActivate.SetActive(true);
             }
 
             Destroy(gameObject);

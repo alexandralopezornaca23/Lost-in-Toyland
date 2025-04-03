@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public void LoseHealth(int healthToReduce)
     {
         health -= healthToReduce;
+        SoundManager.Instance.PlaySound2D("PlayerHit");
         CheckHealth();
     }
 
@@ -42,8 +43,6 @@ public class GameManager : MonoBehaviour
     {
         if (health <= 0)
         {
-            Debug.Log("Game Over");
-
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

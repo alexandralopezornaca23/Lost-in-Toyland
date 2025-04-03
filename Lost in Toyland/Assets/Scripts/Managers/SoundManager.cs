@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SoundManager : MonoBehaviour
 {
@@ -25,6 +26,14 @@ public class SoundManager : MonoBehaviour
 
         float savedVolume = PlayerPrefs.GetFloat("SoundVolume", 1f);
         SetVolume(savedVolume);
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current.lKey.wasPressedThisFrame) // Pulsa "L" para probar el sonido
+        {
+            SoundManager.Instance.PlaySound2D("PlayerLand");
+        }
     }
 
     public void PlaySound3D(AudioClip clip, Vector3 pos)

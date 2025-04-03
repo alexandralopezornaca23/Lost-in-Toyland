@@ -8,11 +8,13 @@ public class BreakableDoor : MonoBehaviour
     public GameObject doorAll;
     public GameObject explosion;
 
+    public GameObject enemyBreack;
+
     public AudioClip explosionSound;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.gameObject == enemyBreack)
         {
             GameObject instantiatedPieces = Instantiate(doorPieces, transform.position, transform.rotation);
             Instantiate(explosion, transform.position, Quaternion.identity);

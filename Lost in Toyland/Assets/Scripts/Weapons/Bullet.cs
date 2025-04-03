@@ -31,11 +31,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            return;
-        }
-        else if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             AI enemyAI = other.gameObject.GetComponent<AI>();
             enemyAI.Death();

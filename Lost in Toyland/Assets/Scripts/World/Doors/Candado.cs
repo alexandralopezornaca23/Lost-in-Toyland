@@ -20,27 +20,24 @@ public class Candado : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(playerBulletLayer))
         {
-            // Reproducir la animación del candado si tiene un Animator
             if (animator != null)
             {
                 animator.SetTrigger(animationTrigger);
             }
 
-            // Destruir la puerta cerrada y reemplazarla por la puerta abierta
-            if (destroyDoor != null)
+           if (destroyDoor != null)
             {
                 Vector3 position = destroyDoor.position;
                 Quaternion rotation = destroyDoor.rotation;
 
-                Destroy(destroyDoor.gameObject); // Destruir la puerta cerrada
+                Destroy(destroyDoor.gameObject);
 
                 if (openDoor != null)
                 {
-                    Instantiate(openDoor, position, rotation); // Instanciar la puerta abierta
+                    Instantiate(openDoor, position, rotation);
                 }
             }
 
-            // Destruir el candado
             Destroy(gameObject);
         }
     }

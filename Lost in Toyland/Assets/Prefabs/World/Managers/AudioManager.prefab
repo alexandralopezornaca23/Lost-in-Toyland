@@ -64,6 +64,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffects:
+  - groupID: PlayerWalkSteps
+    clips:
+    - {fileID: 8300000, guid: c41fb169b2991c247a5466e00faa6639, type: 3}
+  - groupID: PlayerRunSteps
+    clips:
+    - {fileID: 8300000, guid: 7ffe843b3b9c8d14792d912d39646105, type: 3}
+  - groupID: PlayerJump
+    clips:
+    - {fileID: 8300000, guid: 623ad07c146cedd4db6b902fd1612618, type: 3}
+  - groupID: PlayerHit
+    clips:
+    - {fileID: 8300000, guid: 58312219f716f4149af0025da025892f, type: 3}
+  - groupID: PlayerLand
+    clips:
+    - {fileID: 8300000, guid: bb5ec83ccc5c69f43b31f100278bff91, type: 3}
+  - groupID: EnemyAttack
+    clips:
+    - {fileID: 8300000, guid: 9a2d033f7760b4ef09400945a538ccd9, type: 3}
+  - groupID: EnemyHit
+    clips:
+    - {fileID: 8300000, guid: c55fb47f6865f480c989e8407de1d19c, type: 3}
   - groupID: Hover
     clips:
     - {fileID: 8300000, guid: f10e7ff812627164fa39911459400577, type: 3}
