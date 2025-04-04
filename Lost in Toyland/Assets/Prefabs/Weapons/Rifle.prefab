@@ -1453,6 +1453,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6082552167255848271, guid: e5d83465e3101b54ca76ddf03b38f8c5, type: 3}
   bulletHitMissDistance: 25
   playerInput: {fileID: 0}
+  layersToIgnore:
+    serializedVersion: 2
+    m_Bits: 11397
   currentShotMode: 1
   shootSound: {fileID: 8300000, guid: 4a5dcf5dcdb2c44418bc59c31d3671ad, type: 3}
 --- !u!114 &8146969063624195307

@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,33 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Item")
+    //        || other.gameObject.CompareTag("ShortGun") || other.gameObject.CompareTag("Rifle") || other.gameObject.CompareTag("FrozzenGun")
+    //        || other.gameObject.CompareTag("GunAmmo") || other.gameObject.CompareTag("FrozzenGunAmmo") || other.gameObject.CompareTag("Grenade")
+    //        || other.gameObject.CompareTag("HealthObject")
+    //        || other.gameObject.CompareTag("DoorSound") || other.gameObject.CompareTag("DoorSoundOpen") || other.gameObject.CompareTag("DoorSoundClose"))
+    //    {
+    //        rb.GetComponent<Rigidbody>();
+    //        rb = null;
+    //        return;
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Item")
+    //        || other.gameObject.CompareTag("ShortGun") || other.gameObject.CompareTag("Rifle") || other.gameObject.CompareTag("FrozzenGun")
+    //        || other.gameObject.CompareTag("GunAmmo") || other.gameObject.CompareTag("FrozzenGunAmmo") || other.gameObject.CompareTag("Grenade")
+    //        || other.gameObject.CompareTag("HealthObject")
+    //        || other.gameObject.CompareTag("DoorSound") || other.gameObject.CompareTag("DoorSoundOpen") || other.gameObject.CompareTag("DoorSoundClose"))
+    //    {
+    //        rb.GetComponent<Rigidbody>();
+    //        return;
+    //    }
+    //}
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -39,7 +67,6 @@ public class Bullet : MonoBehaviour
 
             return;
         }
-
         ContactPoint contact = other.GetContact(0);
         GameObject contactDecal = Instantiate(bulletDecal, contact.point + contact.normal * 0.0001f, Quaternion.LookRotation(contact.normal));
 

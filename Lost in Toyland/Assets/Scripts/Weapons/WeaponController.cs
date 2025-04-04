@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,8 @@ public class WeaponController : MonoBehaviour
 
     public PlayerInput playerInput;
     private InputAction shootAction;
+
+    public LayerMask layersToIgnore;
 
     public enum ShootMode
     {
@@ -124,8 +127,18 @@ public class WeaponController : MonoBehaviour
             GameObject bullet = GameObject.Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity, playerControllerBulletParent.bulletParent);
             Bullet bulletController = bullet.GetComponent<Bullet>();
 
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, ~layersToIgnore))
             {
+                if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.gameObject.CompareTag("Item")
+                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozzenGun")
+                || hit.collider.gameObject.CompareTag("GunAmmo") || hit.collider.gameObject.CompareTag("FrozenGunAmmo") || hit.collider.gameObject.CompareTag("Grenade")
+                || hit.collider.gameObject.CompareTag("HealthObject")
+                || hit.collider.gameObject.CompareTag("DoorSound") || hit.collider.gameObject.CompareTag("DoorSoundOpen") || hit.collider.gameObject.CompareTag("DoorSoundClose"))
+                {
+                    bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance; 
+                    bulletController.hit = false;
+                    return;
+                }
                 bulletController.target = hit.point;
                 bulletController.hit = true;
             }
@@ -148,8 +161,18 @@ public class WeaponController : MonoBehaviour
             GameObject bullet = GameObject.Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity, playerControllerBulletParent.bulletParent);
             Bullet bulletController = bullet.GetComponent<Bullet>();
 
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, ~layersToIgnore))
             {
+                if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.gameObject.CompareTag("Item")
+                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozzenGun")
+                || hit.collider.gameObject.CompareTag("GunAmmo") || hit.collider.gameObject.CompareTag("FrozenGunAmmo") || hit.collider.gameObject.CompareTag("Grenade")
+                || hit.collider.gameObject.CompareTag("HealthObject")
+                || hit.collider.gameObject.CompareTag("DoorSound") || hit.collider.gameObject.CompareTag("DoorSoundOpen") || hit.collider.gameObject.CompareTag("DoorSoundClose"))
+                {
+                    bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                    bulletController.hit = false;
+                    return;
+                }
                 bulletController.target = hit.point;
                 bulletController.hit = true;
             }
@@ -170,8 +193,18 @@ public class WeaponController : MonoBehaviour
             GameObject bullet = GameObject.Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity, playerControllerBulletParent.bulletParent);
             BulletFrozen bulletController = bullet.GetComponent<BulletFrozen>();
 
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, ~layersToIgnore))
             {
+                if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.gameObject.CompareTag("Item")
+                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozzenGun")
+                || hit.collider.gameObject.CompareTag("GunAmmo") || hit.collider.gameObject.CompareTag("FrozenGunAmmo") || hit.collider.gameObject.CompareTag("Grenade")
+                || hit.collider.gameObject.CompareTag("HealthObject")
+                || hit.collider.gameObject.CompareTag("DoorSound") || hit.collider.gameObject.CompareTag("DoorSoundOpen") || hit.collider.gameObject.CompareTag("DoorSoundClose"))
+                {
+                    bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                    bulletController.hit = false;
+                    return;
+                }
                 bulletController.target = hit.point;
                 bulletController.hit = true;
             }

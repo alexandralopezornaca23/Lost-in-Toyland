@@ -31,7 +31,7 @@ public class BulletFrozen : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Item") || other.gameObject.CompareTag("Rifle"))
         {
             return;
         }

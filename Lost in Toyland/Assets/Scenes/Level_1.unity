@@ -1943,7 +1943,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2080,7 +2080,7 @@ Transform:
   m_GameObject: {fileID: 319887690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.53, y: 2.3, z: -33.43}
+  m_LocalPosition: {x: 8.789, y: 2.3, z: -3.56}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6596,7 +6596,7 @@ Transform:
   m_GameObject: {fileID: 837096869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.82, y: 0.89, z: -36.26}
+  m_LocalPosition: {x: 2.39, y: 0.89, z: -0.81}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7522,7 +7522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2877016370473597628, guid: cafc91c4f51eff743aa2be7fd2cea248, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.339581
+      value: 12.595
       objectReference: {fileID: 0}
     - target: {fileID: 2877016370473597628, guid: cafc91c4f51eff743aa2be7fd2cea248, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7583,7 +7583,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4970225839173973599, guid: 988d4d84316a0b34c8757a41192ef07a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.545
+      value: -3.77
       objectReference: {fileID: 0}
     - target: {fileID: 4970225839173973599, guid: 988d4d84316a0b34c8757a41192ef07a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33781,7 +33781,7 @@ Transform:
   m_GameObject: {fileID: 6851921014176810822}
   serializedVersion: 2
   m_LocalRotation: {x: 0.028606143, y: -0.030526005, z: 0.0008739967, w: 0.99912417}
-  m_LocalPosition: {x: 3.5314803, y: 0.7086483, z: -3.0033238}
+  m_LocalPosition: {x: 3.5314803, y: 0.7086488, z: -3.0033238}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34676,7 +34676,7 @@ GameObject:
   - component: {fileID: 3865160936980608314}
   - component: {fileID: 7072485506718746054}
   - component: {fileID: 4628342849388067578}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DestroyDoor1Activator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
