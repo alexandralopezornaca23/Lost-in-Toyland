@@ -9,13 +9,11 @@ public class WeaponSwitch : MonoBehaviour
 
     public PlayerController playerController;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SelectWeapon();
     }
 
-    // Update is called once per frame
     void Update()
     {
         int previousWeapon = selectedWeapon;

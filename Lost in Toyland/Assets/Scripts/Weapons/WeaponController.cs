@@ -102,7 +102,7 @@ public class WeaponController : MonoBehaviour
                 switch (currentShotMode)
                 {
                     case ShootMode.Single:
-                        ShootGun();
+                        ShootInfinityGun();
                         break;
                     case ShootMode.Auto:
                         StartCoroutine(AutomaticShoot());
@@ -136,6 +136,28 @@ public class WeaponController : MonoBehaviour
             }
 
             GameManager.Instance.gunAmmo--;
+        }
+    }
+
+    private void ShootInfinityGun()
+    {
+        if (Time.time > shootRateTime)
+        {
+            audioSource.PlayOneShot(shootSound);
+            RaycastHit hit;
+            GameObject bullet = GameObject.Instantiate(bulletPrefab, shootSpawn.position, Quaternion.identity, playerControllerBulletParent.bulletParent);
+            Bullet bulletController = bullet.GetComponent<Bullet>();
+
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+            {
+                bulletController.target = hit.point;
+                bulletController.hit = true;
+            }
+            else
+            {
+                bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                bulletController.hit = false;
+            }
         }
     }
 

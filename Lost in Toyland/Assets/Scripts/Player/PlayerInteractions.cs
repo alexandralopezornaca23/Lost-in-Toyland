@@ -1,6 +1,11 @@
 using System.Runtime.CompilerServices;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class PlayerInteractions : MonoBehaviour
 {
@@ -19,6 +24,11 @@ public class PlayerInteractions : MonoBehaviour
 
     public LockedDoor door;
 
+    public Slider progressBar;
+    public GameObject transitionsContainer;
+
+    private SceneTransition[] transitions;
+
     private void Awake()
     {
 
@@ -27,6 +37,8 @@ public class PlayerInteractions : MonoBehaviour
         infoTextOpenDoor.SetActive(false);
         infoTextCloseDoor.SetActive(false);
         infoPickUpItem.SetActive(false);
+
+        transitions = transitionsContainer.GetComponentsInChildren<SceneTransition>();
     }
 
     private void Update()
@@ -100,6 +112,18 @@ public class PlayerInteractions : MonoBehaviour
             GetComponent<CharacterController>().enabled = false;
             gameObject.transform.position = startPosition.position;
             GetComponent<CharacterController>().enabled = true;
+        }
+
+        if (other.CompareTag("NextLevelTrigger"))
+        {
+            GetComponent<CharacterController>().enabled = false;
+
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextSceneIndex = currentSceneIndex + 1;
+
+            string transitionName = "CrossFade";
+
+            StartCoroutine(LoadSceneAsync(nextSceneIndex, transitionName));
         }
     }
 
@@ -218,5 +242,36 @@ public class PlayerInteractions : MonoBehaviour
         Destroy(item);
         infoPickUpItem.SetActive(false);
         nearbyObject = null;
+    }
+
+    private IEnumerator LoadSceneAsync(int sceneIndex, string transitionName)
+    {
+        Debug.Log("Iniciando transición a la escena con índice: " + sceneIndex);
+
+        SceneTransition transition = transitions.FirstOrDefault(t => t.name == transitionName);
+        if (transition == null)
+        {
+            Debug.LogError("Transición no encontrada: " + transitionName);
+            yield break; 
+        }
+
+        AsyncOperation scene = SceneManager.LoadSceneAsync(sceneIndex);
+        scene.allowSceneActivation = false;
+
+        yield return transition.AnimateTransitionIn();
+
+        progressBar.gameObject.SetActive(true);
+
+        while (scene.progress < 0.9f)
+        {
+            progressBar.value = scene.progress;
+            yield return null;
+        }
+
+        scene.allowSceneActivation = true;
+
+        progressBar.gameObject.SetActive(false);
+
+        yield return transition.AnimateTransitionOut();
     }
 }

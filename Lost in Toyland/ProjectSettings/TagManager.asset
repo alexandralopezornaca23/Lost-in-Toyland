@@ -21,6 +21,7 @@ TagManager:
   - Ground
   - FrozenGun
   - FrozenGunAmmo
+  - NextLevelTrigger
   layers:
   - Default
   - TransparentFX
