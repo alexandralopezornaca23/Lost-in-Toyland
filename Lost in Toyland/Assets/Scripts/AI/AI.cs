@@ -43,6 +43,7 @@ public class AI : MonoBehaviour
 
     [SerializeField]
     private GameObject frozenOrbePrefab;
+    public GameObject frozenOrbPoint;
 
     private bool isDead = false;
 
@@ -204,6 +205,11 @@ public class AI : MonoBehaviour
     {
         if (objectToActivate != null) objectToActivate.SetActive(true);
 
+        if (frozenOrbePrefab != null)
+        {
+            Vector3 spawnPosition = frozenOrbPoint.gameObject.transform.position;
+            Instantiate(frozenOrbePrefab, spawnPosition, Quaternion.identity);
+        }
         StartCoroutine(TimeDeathAnimation());
         SoundManager.Instance.PlaySound2D("EnemyHit");
     }
@@ -226,9 +232,12 @@ public class AI : MonoBehaviour
 
         navMeshAgent.isStopped = true;
         animator.SetTrigger("isDeath");
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 3);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 1);
 
-        Destroy(gameObject);
+        if (transform.parent != null)
+        {
+            Destroy(transform.parent.gameObject);  
+        }
     }
 
     public void Frozen()

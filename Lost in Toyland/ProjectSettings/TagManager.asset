@@ -21,7 +21,11 @@ TagManager:
   - Ground
   - FrozenGun
   - FrozenGunAmmo
-  - NextLevelTrigger
+  - Level2Trigger
+  - Level3Trigger
+  - TrampBox
+  - GiftBox
+  - FinalGameTrigger
   layers:
   - Default
   - TransparentFX
@@ -38,7 +42,7 @@ TagManager:
   - RaycastDetectDoorOpen
   - PlayerBullet
   - RaycastDetectDoorClose
-  - 
+  - RaycastDetectDoorLocked
   - 
   - 
   - 

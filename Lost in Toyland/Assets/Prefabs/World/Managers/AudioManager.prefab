@@ -132,6 +132,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 815372c60b4cf6b48935e6822b62113f, type: 3}
   - trackName: Level3
     clip: {fileID: 8300000, guid: 6a5f45bc33a681847a34b9e4e5e9e0d7, type: 3}
+  - trackName: FinalCredits
+    clip: {fileID: 8300000, guid: 9d9b2f3d7fb596b499733410e1c1cfa9, type: 3}
 --- !u!1 &4943963871319787165
 GameObject:
   m_ObjectHideFlags: 0

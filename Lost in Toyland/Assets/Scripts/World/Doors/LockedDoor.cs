@@ -26,12 +26,16 @@ public class LockedDoor : MonoBehaviour
             return;
         }
 
-        // Si la puerta se va a abrir, destruimos el candado
         if (!doorOpen && candado != null)
         {
-            Destroy(candado); // Destruir el candado cuando la puerta se abre
+            Destroy(candado);
         }
 
         doorOpen = !doorOpen;
+    }
+
+    public void ChangeLayerWhenUnlocked()
+    {
+        gameObject.layer = LayerMask.NameToLayer("RaycastDetectDoorOpen");
     }
 }

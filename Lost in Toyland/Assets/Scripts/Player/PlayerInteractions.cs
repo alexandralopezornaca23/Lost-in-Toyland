@@ -13,13 +13,26 @@ public class PlayerInteractions : MonoBehaviour
 
     public LayerMask maskDoorOpen;
     public LayerMask maskDoorClose;
+    public LayerMask maskDoorLocked;
     public float distancia = 5f;
 
-    public GameObject infoPickUpItem;
+    public GameObject infoPickUpItemGunAmmo;
+    public GameObject infoPickUpItemFrozenGunAmmo;
+    public GameObject infoPickUpItemGrenade;
+    public GameObject infoPickUpItemHealthObject;
+
     private GameObject nearbyObject = null;
+
+    public GameObject infoTrampBox;
+    public Transform trampTarget; 
+    public float trampSpeed = 10f; 
+
+    public GameObject infoGiftBox;
+    public GameObject[] giftPrefabs;
 
     public GameObject infoTextOpenDoor;
     public GameObject infoTextCloseDoor;
+    public GameObject infoTextLockedDoor;
     public GameObject lastDetected = null;
 
     public LockedDoor door;
@@ -36,9 +49,15 @@ public class PlayerInteractions : MonoBehaviour
         maskDoorOpen = LayerMask.GetMask("RaycastDetectDoorOpen");
         infoTextOpenDoor.SetActive(false);
         infoTextCloseDoor.SetActive(false);
-        infoPickUpItem.SetActive(false);
+        infoTextLockedDoor.SetActive(false);
+        infoPickUpItemGunAmmo.SetActive(false);
+        infoPickUpItemFrozenGunAmmo.SetActive(false);
+        infoPickUpItemGrenade.SetActive(false);
+        infoPickUpItemHealthObject.SetActive(false);
+        infoTrampBox.SetActive(false);
+        infoGiftBox.SetActive(false);
 
-        transitions = transitionsContainer.GetComponentsInChildren<SceneTransition>();
+    transitions = transitionsContainer.GetComponentsInChildren<SceneTransition>();
     }
 
     private void Update()
@@ -99,10 +118,49 @@ public class PlayerInteractions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("GunAmmo") || other.CompareTag("FrozenGunAmmo") || other.CompareTag("Grenade") || other.CompareTag("HealthObject"))
+        if (other.CompareTag("GunAmmo"))
         {
-            infoPickUpItem.SetActive(true);
+            infoPickUpItemGunAmmo.SetActive(true);
             nearbyObject = other.gameObject;
+        }
+        else if (other.CompareTag("Grenade"))
+        {
+            infoPickUpItemGrenade.SetActive(true);
+            nearbyObject = other.gameObject;
+        }
+        else if (other.CompareTag("FrozenGunAmmo"))
+        {
+            infoPickUpItemFrozenGunAmmo.SetActive(true);
+            nearbyObject = other.gameObject;
+        }
+        else if (other.CompareTag("HealthObject"))
+        {
+            infoPickUpItemHealthObject.SetActive(true);
+            nearbyObject = other.gameObject;
+        }
+        else if (other.CompareTag("TrampBox"))
+        {
+            infoTrampBox.SetActive(true);
+        }
+        else if (other.CompareTag("GiftBox"))
+        {
+            infoGiftBox.SetActive(true);
+        }
+        else if (other.CompareTag("TrampBox") && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            if (trampTarget != null)
+            {
+                Vector3 direction = (trampTarget.position - transform.position).normalized;
+                GetComponent<CharacterController>().Move(direction * trampSpeed * Time.deltaTime);
+            }
+        }
+        else if (other.CompareTag("GiftBox") && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            if (giftPrefabs.Length > 0)
+            {
+                int randomIndex = Random.Range(0, giftPrefabs.Length);
+                Instantiate(giftPrefabs[randomIndex], other.transform.position, Quaternion.identity);
+            }
         }
 
         if (other.gameObject.CompareTag("DeathFloor"))
@@ -114,16 +172,26 @@ public class PlayerInteractions : MonoBehaviour
             GetComponent<CharacterController>().enabled = true;
         }
 
-        if (other.CompareTag("NextLevelTrigger"))
+        if (other.CompareTag("Level2Trigger"))
         {
             GetComponent<CharacterController>().enabled = false;
 
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            int nextSceneIndex = currentSceneIndex + 1;
+            MusicManager.Instance.PlayMusic("Level2", 0.5f);
+            LevelManager.Instance.LoadScene("Level_2", "CrossFade");
+        }
 
-            string transitionName = "CrossFade";
+        if (other.CompareTag("Level3Trigger"))
+        {
+            GetComponent<CharacterController>().enabled = false;
+            MusicManager.Instance.PlayMusic("Level3", 0.5f);
+            LevelManager.Instance.LoadScene("Level_3", "CrossFade");            
+        }
 
-            StartCoroutine(LoadSceneAsync(nextSceneIndex, transitionName));
+        if (other.CompareTag("FinalGameTrigger"))
+        {
+            GetComponent<CharacterController>().enabled = false;
+            MusicManager.Instance.PlayMusic("FinalCredits", 0.5f);
+            LevelManager.Instance.LoadScene("Final_Credits", "CrossFade");
         }
     }
 
@@ -131,22 +199,27 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GunAmmo"))
         {
-            infoPickUpItem.SetActive(false);
+            infoPickUpItemGunAmmo.SetActive(false);
         }
-
-        if (other.gameObject.CompareTag("FrozenGunAmmo"))
-        {           
-            infoPickUpItem.SetActive(false);
-        }
-
-        if (other.gameObject.CompareTag("Grenade"))
+        else if (other.gameObject.CompareTag("FrozenGunAmmo"))
         {
-            infoPickUpItem.SetActive(false);
+            infoPickUpItemFrozenGunAmmo.SetActive(false);
         }
-
-        if (other.gameObject.CompareTag("HealthObject"))
+        else if (other.gameObject.CompareTag("Grenade"))
         {
-            infoPickUpItem.SetActive(false);
+            infoPickUpItemGrenade.SetActive(false);
+        }
+        else if (other.gameObject.CompareTag("HealthObject"))
+        {
+            infoPickUpItemHealthObject.SetActive(false);
+        }
+        else if (other.CompareTag("TrampBox"))
+        {
+            infoTrampBox.SetActive(false);
+        }
+        else if (other.CompareTag("GiftBox"))
+        {
+            infoGiftBox.SetActive(false);
         }
     }
 
@@ -181,19 +254,38 @@ public class PlayerInteractions : MonoBehaviour
         else if (transform.gameObject.layer == LayerMask.NameToLayer("RaycastDetectDoorClose"))
         {
             MeshRenderer meshRenderer = transform.GetComponent<MeshRenderer>();
-
-            if (meshRenderer != null)
+            if (transform.gameObject.tag == "Door") 
             {
-                infoTextCloseDoor.SetActive(true);
-                meshRenderer.material.color = Color.red;
-                lastDetected = transform.gameObject;
+                if (meshRenderer != null)
+                {
+                    infoTextCloseDoor.SetActive(true);
+                    meshRenderer.material.color = Color.red;
+                    lastDetected = transform.gameObject;
+                }
+                else
+                {
+                    meshRenderer = transform.GetComponentInChildren<MeshRenderer>();
+                    infoTextCloseDoor.SetActive(true);
+                    meshRenderer.material.color = Color.red;
+                    lastDetected = transform.gameObject;
+                }
             }
-            else
+            else if (transform.gameObject.tag == "DoorLocked")
             {
-                meshRenderer = transform.GetComponentInChildren<MeshRenderer>();
-                infoTextCloseDoor.SetActive(true);
-                meshRenderer.material.color = Color.red;
-                lastDetected = transform.gameObject;
+                if (meshRenderer != null)
+                {
+                    infoTextLockedDoor.SetActive(true);
+                    meshRenderer.material.color = Color.red;
+                    lastDetected = transform.gameObject;
+                }
+                else
+                {
+                    meshRenderer = transform.GetComponentInChildren<MeshRenderer>();
+                    infoTextLockedDoor.SetActive(true);
+                    meshRenderer.material.color = Color.red;
+                    lastDetected = transform.gameObject;
+                }
+
             }
         }
     }
@@ -216,6 +308,7 @@ public class PlayerInteractions : MonoBehaviour
 
             infoTextOpenDoor.SetActive(false);
             infoTextCloseDoor.SetActive(false);
+            infoTextLockedDoor.SetActive(false);
             lastDetected = null;
         }
     }
@@ -240,38 +333,11 @@ public class PlayerInteractions : MonoBehaviour
         }
 
         Destroy(item);
-        infoPickUpItem.SetActive(false);
+        infoPickUpItemGunAmmo.SetActive(false);
+        infoPickUpItemFrozenGunAmmo.SetActive(false);
+        infoPickUpItemGrenade.SetActive(false);
+        infoPickUpItemHealthObject.SetActive(false);
+        
         nearbyObject = null;
-    }
-
-    private IEnumerator LoadSceneAsync(int sceneIndex, string transitionName)
-    {
-        Debug.Log("Iniciando transición a la escena con índice: " + sceneIndex);
-
-        SceneTransition transition = transitions.FirstOrDefault(t => t.name == transitionName);
-        if (transition == null)
-        {
-            Debug.LogError("Transición no encontrada: " + transitionName);
-            yield break; 
-        }
-
-        AsyncOperation scene = SceneManager.LoadSceneAsync(sceneIndex);
-        scene.allowSceneActivation = false;
-
-        yield return transition.AnimateTransitionIn();
-
-        progressBar.gameObject.SetActive(true);
-
-        while (scene.progress < 0.9f)
-        {
-            progressBar.value = scene.progress;
-            yield return null;
-        }
-
-        scene.allowSceneActivation = true;
-
-        progressBar.gameObject.SetActive(false);
-
-        yield return transition.AnimateTransitionOut();
     }
 }

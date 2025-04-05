@@ -11,7 +11,10 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(PlayMusic), 0.1f);
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Invoke(nameof(PlayMusic), 0.1f);
+        }
 
         if (musicVolumeSlider != null)
         {
@@ -28,10 +31,22 @@ public class Menu : MonoBehaviour
         }
     }
 
-    public void Play()
+    public void PlayLevel1()
     {
-        LevelManager.Instance.LoadScene("Level_1", "CrossFade");
         MusicManager.Instance.PlayMusic("Level1");
+        LevelManager.Instance.LoadScene("Level_1", "CrossFade");
+    }
+
+    public void PlayLevel2()
+    {
+        MusicManager.Instance.PlayMusic("Level2");
+        LevelManager.Instance.LoadScene("Level_2", "CrossFade");
+    }
+
+    public void PlayLevel3()
+    {
+        MusicManager.Instance.PlayMusic("Level3");
+        LevelManager.Instance.LoadScene("Level_3", "CrossFade");
     }
 
     public void OnVolumeChanged(float volume)

@@ -22,6 +22,7 @@ public class KeyScript : MonoBehaviour
             if (keysCollected >= 3)
             {
                 doorToOpen.isUnloocked = true;
+                doorToOpen.ChangeLayerWhenUnlocked();
             }
 
             if (textToActivate != null)

@@ -48,7 +48,9 @@ public class PlayerController : MonoBehaviour
     private StaminaBar staminaSlider;
 
     //GunsWeapons
-    public GameObject infoPickUpWeapon;
+    public GameObject infoPickUpInfinityWeapon;
+    public GameObject infoPickUpItemAutomaticWeapon;
+    public GameObject infoPickUpItemFrozenWeapon;
 
     public bool hasNonGun = true;
     public bool hasPistol = false;
@@ -80,8 +82,10 @@ public class PlayerController : MonoBehaviour
         moveXAnimationParametrerID = Animator.StringToHash("MoveX");
         moveZAnimationParametrerID = Animator.StringToHash("MoveZ");
 
-        infoPickUpWeapon.SetActive(false);
-    }
+        infoPickUpInfinityWeapon.SetActive(false);
+        infoPickUpItemAutomaticWeapon.SetActive(false);
+        infoPickUpItemFrozenWeapon.SetActive(false);
+}
 
     private void Start()
     {
@@ -262,7 +266,9 @@ public class PlayerController : MonoBehaviour
             }
 
             nearItem = null;
-            infoPickUpWeapon.SetActive(false);
+            infoPickUpInfinityWeapon.SetActive(false);
+            infoPickUpItemAutomaticWeapon.SetActive(false);
+            infoPickUpItemFrozenWeapon.SetActive(false);
         }
     }
 
@@ -271,7 +277,18 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
         {
             nearItem = other.gameObject;
-            infoPickUpWeapon.SetActive(true);
+            if (nearItem.gameObject.CompareTag("ShortGun"))
+            {
+                infoPickUpInfinityWeapon.SetActive(true);
+            }
+            else if (nearItem.gameObject.CompareTag("Rifle"))
+            {
+                infoPickUpItemAutomaticWeapon.SetActive(true);
+            }
+            else if (nearItem.gameObject.CompareTag("FrozenGun"))
+            {
+                infoPickUpItemFrozenWeapon.SetActive(true);
+            }
         }
     }
 
@@ -280,7 +297,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
         {
             nearItem = null;
-            infoPickUpWeapon.SetActive(false);
+            infoPickUpInfinityWeapon.SetActive(false);
+            infoPickUpItemAutomaticWeapon.SetActive(false);
+            infoPickUpItemFrozenWeapon.SetActive(false);
         }
     }
 }

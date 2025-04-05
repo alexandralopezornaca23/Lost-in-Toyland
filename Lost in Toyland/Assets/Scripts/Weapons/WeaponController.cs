@@ -129,8 +129,8 @@ public class WeaponController : MonoBehaviour
 
             if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, ~layersToIgnore))
             {
-                if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.gameObject.CompareTag("Item")
-                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozzenGun")
+                if (hit.collider != null && hit.collider.CompareTag("Player")
+                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozenGun")
                 || hit.collider.gameObject.CompareTag("GunAmmo") || hit.collider.gameObject.CompareTag("FrozenGunAmmo") || hit.collider.gameObject.CompareTag("Grenade")
                 || hit.collider.gameObject.CompareTag("HealthObject")
                 || hit.collider.gameObject.CompareTag("DoorSound") || hit.collider.gameObject.CompareTag("DoorSoundOpen") || hit.collider.gameObject.CompareTag("DoorSoundClose"))
@@ -163,8 +163,8 @@ public class WeaponController : MonoBehaviour
 
             if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, ~layersToIgnore))
             {
-                if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.gameObject.CompareTag("Item")
-                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozzenGun")
+                if (hit.collider != null && hit.collider.CompareTag("Player")
+                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozenGun")
                 || hit.collider.gameObject.CompareTag("GunAmmo") || hit.collider.gameObject.CompareTag("FrozenGunAmmo") || hit.collider.gameObject.CompareTag("Grenade")
                 || hit.collider.gameObject.CompareTag("HealthObject")
                 || hit.collider.gameObject.CompareTag("DoorSound") || hit.collider.gameObject.CompareTag("DoorSoundOpen") || hit.collider.gameObject.CompareTag("DoorSoundClose"))
@@ -195,8 +195,8 @@ public class WeaponController : MonoBehaviour
 
             if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, ~layersToIgnore))
             {
-                if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.gameObject.CompareTag("Item")
-                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozzenGun")
+                if (hit.collider != null && hit.collider.CompareTag("Player")
+                || hit.collider.gameObject.CompareTag("ShortGun") || hit.collider.gameObject.CompareTag("Rifle") || hit.collider.gameObject.CompareTag("FrozenGun")
                 || hit.collider.gameObject.CompareTag("GunAmmo") || hit.collider.gameObject.CompareTag("FrozenGunAmmo") || hit.collider.gameObject.CompareTag("Grenade")
                 || hit.collider.gameObject.CompareTag("HealthObject")
                 || hit.collider.gameObject.CompareTag("DoorSound") || hit.collider.gameObject.CompareTag("DoorSoundOpen") || hit.collider.gameObject.CompareTag("DoorSoundClose"))
