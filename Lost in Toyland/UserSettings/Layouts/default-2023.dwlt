@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 102
+  controlID: 128
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: BuildPlayerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -68,15 +68,15 @@ MonoBehaviour:
     y: 0
     width: 607
     height: 939
-  m_MinSize: {x: 276, y: 71}
+  m_MinSize: {x: 641, y: 601}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 19}
   - {fileID: 16}
   - {fileID: 13}
-  m_Selected: 0
-  m_LastSelected: 2
+  m_Selected: 2
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 47
+  controlID: 64
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 48
+  controlID: 65
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -589,7 +589,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 762
-    width: 1466
+    width: 1312
     height: 229
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -6924
+  m_LastSelectedObjectID: -3562
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -652,7 +652,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Fonts
+    - Assets/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -662,17 +662,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Fonts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Proyectos Unity\Lost in the Toyland\Lost-in-Toyland\Lost
     in Toyland
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: 84cb0000
-    m_LastClickedID: 52100
-    m_ExpandedIDs: 00000000aaca0000acca0000aeca0000b0ca0000b2ca0000b4ca0000b6ca0000b8ca0000baca0000bcca0000beca0000c0ca0000c2ca0000c4ca0000c6ca00004acb0000ffffff7f
+    scrollPos: {x: 0, y: 479}
+    m_SelectedIDs: 18dc0000
+    m_LastClickedID: 56344
+    m_ExpandedIDs: 00000000e2db000022dc000028dc000078dc000032e00000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -701,7 +701,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aaca0000acca0000aeca0000b0ca0000b2ca0000b4ca0000b6ca0000b8ca0000baca0000bcca0000beca0000c0ca0000c2ca0000c4ca0000c6ca0000
+    m_ExpandedIDs: 00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -847,26 +847,26 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a8c10000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c4aaffff6cabffff1caffffffab1ffffc2b5ffff5ebfffff06c2ffff42e4ffff66e4ffff6ae4ffff6ee4ffff72e4ffffb2e4ffffb6e4ffffbae4ffffe6e4ffffeae4fffff4e4ffffa2ebffffcafaffff
+      m_ExpandedIDs: 04c4feffacc4feff5ec8feff92cdfeff16d4feff72defeff22e1feffc4e4feff8cf7feffe8fbfeff90fcfeff7800ffffac05ffff360cffff9216ffff4219ffff3c1dffff9627ffffd839ffffccf5ffffcafaffff14260100cc2601006e2a01008a730100ea75010046dc0100aedc0100d6dc0100b8df01007ae0010048e4010090e4010056e50100a4e5010002e60100dee801006ae9010054ea010060ef01007aef010064f501000ef601001cf60100bef90100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: CaramelProyectile
+        m_OriginalName: CaramelProyectile
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -5730
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1355,9 +1355,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0.47921437, y: 5.5671277, z: -7.342416}
+    m_Target: {x: -5.399978, y: -7.5990944, z: -4.309436}
     speed: 2
-    m_Value: {x: 0.47921437, y: 5.5671277, z: -7.342416}
+    m_Value: {x: -5.399978, y: -7.5990944, z: -4.309436}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1403,13 +1403,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.28158543, y: 0.053219892, z: -0.01564419, w: 0.9579348}
+    m_Target: {x: -0.36302027, y: 0.6207755, z: -0.39344627, w: -0.5727774}
     speed: 2
-    m_Value: {x: 0.28158453, y: 0.05321972, z: -0.01564414, w: 0.9579317}
+    m_Value: {x: -0.36360642, y: 0.6199095, z: -0.39289743, w: -0.5737023}
   m_Size:
-    m_Target: 9.870184
+    m_Target: 38.39861
     speed: 2
-    m_Value: 9.870184
+    m_Value: 36.74508
   m_Ortho:
     m_Target: 0
     speed: 2

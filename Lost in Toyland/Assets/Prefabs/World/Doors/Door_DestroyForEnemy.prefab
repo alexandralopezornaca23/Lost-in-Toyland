@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPieces: {fileID: 1699651582113276353, guid: 888beea749bf62f4b83060e99f62bcaa, type: 3}
   doorAll: {fileID: 1491609312481583427}
-  explosion: {fileID: 1550338487671863135, guid: 64c1f67c50a1170408b5584fefa5399f, type: 3}
+  explosion: {fileID: 7455775571095932316, guid: e55b8bd4a1f16d64da73b7c5d52273c8, type: 3}
   enemyBreack: {fileID: 0}
   explosionSound: {fileID: 8300000, guid: 18370bafdef0bf548a86bd9106e53e2a, type: 3}
 --- !u!1 &1491609312481583427
