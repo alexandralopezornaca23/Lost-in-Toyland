@@ -97,6 +97,24 @@ MonoBehaviour:
   - groupID: SliderRelease
     clips:
     - {fileID: 8300000, guid: 7e5745afffbcd0e4aaa8fce19523a3d2, type: 3}
+  - groupID: BossIdle
+    clips:
+    - {fileID: 8300000, guid: 014b715f8aa9c4fad845b6356f430853, type: 3}
+  - groupID: BossAttack
+    clips:
+    - {fileID: 8300000, guid: 98e09261f3a63460d93dda8792af907d, type: 3}
+  - groupID: BossBullet
+    clips:
+    - {fileID: 8300000, guid: aa7c3ed677471374b8da3205371e025b, type: 3}
+  - groupID: BossDie
+    clips:
+    - {fileID: 8300000, guid: ec834e3a0a9a041e58e015c0bf39ed52, type: 3}
+  - groupID: Tramp
+    clips:
+    - {fileID: 8300000, guid: aa7c3ed677471374b8da3205371e025b, type: 3}
+  - groupID: Gift
+    clips:
+    - {fileID: 8300000, guid: ebb03b2b009894845b81a64051a5c698, type: 3}
 --- !u!114 &2820415480909156331
 MonoBehaviour:
   m_ObjectHideFlags: 0

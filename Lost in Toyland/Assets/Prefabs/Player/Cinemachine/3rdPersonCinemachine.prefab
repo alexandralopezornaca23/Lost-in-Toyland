@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1723465542826016741}
   serializedVersion: 2
   m_LocalRotation: {x: 0.02860613, y: -0.030526033, z: 0.0008739971, w: 0.99912417}
-  m_LocalPosition: {x: 3.4945967, y: 2.6524174, z: -3.79352}
+  m_LocalPosition: {x: 3.6665978, y: 2.401157, z: -4.519955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -378,9 +378,9 @@ MonoBehaviour:
   m_VerticalAxis:
     Value: 3.2799044
     m_SpeedMode: 1
-    m_MaxSpeed: 0.03
-    m_AccelTime: 0.2
-    m_DecelTime: 0.2
+    m_MaxSpeed: 0.5
+    m_AccelTime: 0.1
+    m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
@@ -395,16 +395,16 @@ MonoBehaviour:
       m_LegacyVelocityFilterStrength: -1
   m_VerticalRecentering:
     m_enabled: 0
-    m_WaitTime: 1
+    m_WaitTime: 0.5
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
     Value: -3.4999504
     m_SpeedMode: 1
-    m_MaxSpeed: 0.8
-    m_AccelTime: 0.2
-    m_DecelTime: 0.2
+    m_MaxSpeed: 0.4
+    m_AccelTime: 0.1
+    m_DecelTime: 0.1
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 0
@@ -444,8 +444,8 @@ MonoBehaviour:
   m_YDamping: 0.2
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.12
-  m_ScreenY: 0.01
+  m_ScreenX: 0.19
+  m_ScreenY: 0.14
   m_CameraDistance: 2.55
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0

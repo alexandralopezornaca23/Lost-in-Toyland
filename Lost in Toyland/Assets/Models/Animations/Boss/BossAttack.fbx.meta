@@ -1,0 +1,654 @@
+fileFormatVersion: 2
+guid: 4fac2e1498946a743bdb4071ae70d11a
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: BossAttack
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 131
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.41124994
+        functionName: FireBulletFromParent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: MrBearBoss2:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MrBearBoss2:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: BossIdle(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBear
+      parentName: BossIdle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.000000037748947, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26136
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26151
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26166
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26181
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26196
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26211
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26226
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26241
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26256
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26271
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26286
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26301
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26316
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26331
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26346
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26361
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26376
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26391
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26406
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26421
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26436
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26451
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26466
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26481
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26496
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26511
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26526
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26541
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26556
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26571
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26586
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26601
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26616
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26631
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26646
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26661
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26676
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26691
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26706
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Group26721
+      parentName: MrBear
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Hips
+      parentName: BossIdle(Clone)
+      position: {x: 0, y: 0.0063600773, z: 0.0006054585}
+      rotation: {x: -2.7776537e-10, y: 4.5474693e-11, z: -4.5297094e-10, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: MrBearBoss2:Spine
+      parentName: MrBearBoss2:Hips
+      position: {x: -0, y: 0.0010103339, z: -0.00019644215}
+      rotation: {x: -0.09587105, y: -1.3420459e-11, z: 6.1367256e-10, w: 0.99539375}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:Spine1
+      parentName: MrBearBoss2:Spine
+      position: {x: -0, y: 0.0012007954, z: 0}
+      rotation: {x: 0.000000059604645, y: -8.183625e-11, z: 1.2306735e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+    - name: MrBearBoss2:Spine2
+      parentName: MrBearBoss2:Spine1
+      position: {x: -0, y: 0.0013723391, z: 0}
+      rotation: {x: -0.000000037252903, y: -9.690206e-10, z: 9.929119e-10, w: 1}
+      scale: {x: 1.0000001, y: 0.9999998, z: 1}
+    - name: MrBearBoss2:LeftShoulder
+      parentName: MrBearBoss2:Spine2
+      position: {x: -0.0019989992, y: 0.0011437426, z: -0.00006124816}
+      rotation: {x: 0.5369332, y: -0.4561675, z: 0.5538622, w: 0.44367853}
+      scale: {x: 1.0000005, y: 0.9999999, z: 1}
+    - name: MrBearBoss2:LeftArm
+      parentName: MrBearBoss2:LeftShoulder
+      position: {x: 1.3877787e-19, y: 0.0040820744, z: 2.7755575e-19}
+      rotation: {x: -0.05816342, y: -0.00083480775, z: -0.0042449534, w: 0.9982977}
+      scale: {x: 0.9999999, y: 1.0000004, z: 1}
+    - name: MrBearBoss2:LeftForeArm
+      parentName: MrBearBoss2:LeftArm
+      position: {x: -0, y: 0.0014005792, z: 2.7755575e-19}
+      rotation: {x: -0.066351995, y: 0.007885004, z: -0.038438324, w: 0.9970245}
+      scale: {x: 1.0000001, y: 0.9999997, z: 1.0000001}
+    - name: MrBearBoss2:LeftHand
+      parentName: MrBearBoss2:LeftForeArm
+      position: {x: -0, y: 0.0024692093, z: 0}
+      rotation: {x: -0.00000004470348, y: 0.0000000135041756, z: -0.000000017462296, w: 1}
+      scale: {x: 1.0000011, y: 1.0000012, z: 1.0000007}
+    - name: MrBearBoss2:RightShoulder
+      parentName: MrBearBoss2:Spine2
+      position: {x: 0.0019989992, y: 0.0011499446, z: -0.00009314604}
+      rotation: {x: -0.5318209, y: -0.46053362, z: 0.55741185, w: -0.4408712}
+      scale: {x: 1.0000008, y: 1.0000012, z: 1.0000013}
+    - name: MrBearBoss2:RightArm
+      parentName: MrBearBoss2:RightShoulder
+      position: {x: 1.3877787e-19, y: 0.0040820744, z: 1.3877787e-19}
+      rotation: {x: 0.055259917, y: 0.0012286456, z: -0.021864893, w: -0.9982318}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000004}
+    - name: MrBearBoss2:RightForeArm
+      parentName: MrBearBoss2:RightArm
+      position: {x: -2.7755575e-19, y: 0.0014011955, z: 0}
+      rotation: {x: -0.06980147, y: -0.0066253324, z: 0.024508549, w: 0.9972378}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000001}
+    - name: MrBearBoss2:RightHand
+      parentName: MrBearBoss2:RightForeArm
+      position: {x: 2.7755575e-19, y: 0.0024728097, z: 0}
+      rotation: {x: -0, y: -0, z: 0.000000004074536, w: 1}
+      scale: {x: 1.0000001, y: 1.0000017, z: 1.0000008}
+    - name: MrBearBoss2:Neck
+      parentName: MrBearBoss2:Spine2
+      position: {x: -0, y: 0.0015438807, z: -3.2920455e-12}
+      rotation: {x: 0.09587104, y: 0.0000000016228767, z: -0.0000000016711001, w: 0.99539375}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: MrBearBoss2:Head
+      parentName: MrBearBoss2:Neck
+      position: {x: -0, y: 0.0017073288, z: 0.00031821136}
+      rotation: {x: -0.000000022351742, y: -7.275959e-10, z: -0.0000000010913936, w: 1}
+      scale: {x: 0.99999976, y: 1, z: 1}
+    - name: MrBearBoss2:HeadTop_End
+      parentName: MrBearBoss2:Head
+      position: {x: -0, y: 0.010275114, z: 0.0019150728}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:RightUpLeg
+      parentName: MrBearBoss2:Hips
+      position: {x: 0.0037272265, y: -0.0005646878, z: 0.000088207606}
+      rotation: {x: 0.00022682, y: 0.0056940694, z: 0.99919176, w: -0.039792757}
+      scale: {x: 1.000001, y: 1.0000012, z: 0.9999999}
+    - name: MrBearBoss2:RightLeg
+      parentName: MrBearBoss2:RightUpLeg
+      position: {x: -0, y: 0.0027099617, z: 6.938894e-20}
+      rotation: {x: 0.074212655, y: 0.011141619, z: 0.02925852, w: 0.9967509}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000001}
+    - name: MrBearBoss2:RightFoot
+      parentName: MrBearBoss2:RightLeg
+      position: {x: 2.7755575e-19, y: 0.002575189, z: -5.551115e-19}
+      rotation: {x: 0.29218048, y: -0.42924723, z: -0.054124124, w: 0.8529056}
+      scale: {x: 0.99999976, y: 1.0000004, z: 1}
+    - name: MrBearBoss2:RightToeBase
+      parentName: MrBearBoss2:RightFoot
+      position: {x: -5.551115e-19, y: 0.00071544945, z: 0}
+      rotation: {x: 0.26961643, y: 0.5163874, z: -0.175426, w: 0.7936478}
+      scale: {x: 1, y: 1, z: 0.9999998}
+    - name: MrBearBoss2:RightToe_End
+      parentName: MrBearBoss2:RightToeBase
+      position: {x: -0, y: 0.0009943701, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MrBearBoss2:LeftUpLeg
+      parentName: MrBearBoss2:Hips
+      position: {x: -0.0037272265, y: -0.0005646878, z: 0.00007428765}
+      rotation: {x: -0.0003830277, y: 0.009619455, z: 0.99916184, w: 0.039786793}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+    - name: MrBearBoss2:LeftLeg
+      parentName: MrBearBoss2:LeftUpLeg
+      position: {x: 5.551115e-19, y: 0.002710286, z: 0}
+      rotation: {x: 0.016937388, y: -0.0010780166, z: -0.063511655, w: 0.9978368}
+      scale: {x: 1.0000004, y: 1.0000008, z: 1}
+    - name: MrBearBoss2:LeftFoot
+      parentName: MrBearBoss2:LeftLeg
+      position: {x: -0, y: 0.0023877008, z: -6.938894e-20}
+      rotation: {x: 0.51160485, y: 0.1156638, z: -0.06973646, w: 0.8485395}
+      scale: {x: 1.0000008, y: 1.0000006, z: 0.99999994}
+    - name: MrBearBoss2:LeftToeBase
+      parentName: MrBearBoss2:LeftFoot
+      position: {x: -2.7755575e-19, y: 0.0013763977, z: -2.220446e-18}
+      rotation: {x: 0.026844127, y: -0.0052590817, z: -0.19218606, w: 0.9809772}
+      scale: {x: 0.9999996, y: 0.9999997, z: 1}
+    - name: MrBearBoss2:LeftToe_End
+      parentName: MrBearBoss2:LeftToeBase
+      position: {x: -1.3877787e-19, y: 0.0009277053, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 4490508266be79c46b3d20ad5e74d164, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

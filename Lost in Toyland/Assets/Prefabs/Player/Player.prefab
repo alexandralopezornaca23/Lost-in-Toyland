@@ -1282,10 +1282,6 @@ MonoBehaviour:
   trampTarget: {fileID: 0}
   trampSpeed: 20
   infoGiftBox: {fileID: 0}
-  giftPrefabs:
-  - {fileID: 5215211452252055196, guid: 988d4d84316a0b34c8757a41192ef07a, type: 3}
-  - {fileID: 5957372517605687459, guid: cafc91c4f51eff743aa2be7fd2cea248, type: 3}
-  - {fileID: 6896311665029224273, guid: 39a78d3bb6235324a993a87ddfb2d406, type: 3}
   infoTextOpenDoor: {fileID: 0}
   infoTextCloseDoor: {fileID: 0}
   infoTextLockedDoor: {fileID: 0}

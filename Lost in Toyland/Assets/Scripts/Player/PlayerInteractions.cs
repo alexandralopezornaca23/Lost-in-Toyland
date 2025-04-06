@@ -24,11 +24,7 @@ public class PlayerInteractions : MonoBehaviour
     private GameObject nearbyObject = null;
 
     public GameObject infoTrampBox;
-    public Transform trampTarget; 
-    public float trampSpeed = 10f; 
-
     public GameObject infoGiftBox;
-    public GameObject[] giftPrefabs;
 
     public GameObject infoTextOpenDoor;
     public GameObject infoTextCloseDoor;
@@ -57,7 +53,7 @@ public class PlayerInteractions : MonoBehaviour
         infoTrampBox.SetActive(false);
         infoGiftBox.SetActive(false);
 
-    transitions = transitionsContainer.GetComponentsInChildren<SceneTransition>();
+        transitions = transitionsContainer.GetComponentsInChildren<SceneTransition>();
     }
 
     private void Update()
@@ -112,7 +108,32 @@ public class PlayerInteractions : MonoBehaviour
 
         if (nearbyObject != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            PickUpItem(nearbyObject);
+            if (nearbyObject.CompareTag("GiftBox"))
+            {
+                GiftBox giftOpen = nearbyObject.GetComponent<GiftBox>();
+                if (giftOpen != null && giftOpen.giftObjects.Length > 0)
+                {
+                    giftOpen.OpenBox();
+                    SoundManager.Instance.PlaySound2D("PlayerHit");
+                    infoGiftBox.SetActive(false);
+                    nearbyObject = null;
+                }
+            }
+            else if (nearbyObject.CompareTag("TrampBox"))
+            {
+                TrampBox trampOpen = nearbyObject.GetComponent<TrampBox>();
+                if (trampOpen != null)
+                {
+                    trampOpen.OpenBox();
+                    SoundManager.Instance.PlaySound2D("PlayerHit");
+                    infoTrampBox.SetActive(false);
+                    nearbyObject = null;
+                }
+            }
+            else
+            {
+                PickUpItem(nearbyObject);
+            }
         }
     }
 
@@ -141,26 +162,12 @@ public class PlayerInteractions : MonoBehaviour
         else if (other.CompareTag("TrampBox"))
         {
             infoTrampBox.SetActive(true);
+            nearbyObject = other.gameObject;
         }
         else if (other.CompareTag("GiftBox"))
         {
             infoGiftBox.SetActive(true);
-        }
-        else if (other.CompareTag("TrampBox") && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            if (trampTarget != null)
-            {
-                Vector3 direction = (trampTarget.position - transform.position).normalized;
-                GetComponent<CharacterController>().Move(direction * trampSpeed * Time.deltaTime);
-            }
-        }
-        else if (other.CompareTag("GiftBox") && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            if (giftPrefabs.Length > 0)
-            {
-                int randomIndex = Random.Range(0, giftPrefabs.Length);
-                Instantiate(giftPrefabs[randomIndex], other.transform.position, Quaternion.identity);
-            }
+            nearbyObject = other.gameObject;
         }
 
         if (other.gameObject.CompareTag("DeathFloor"))

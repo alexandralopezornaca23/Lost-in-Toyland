@@ -46,6 +46,7 @@ public class AI : MonoBehaviour
     public GameObject frozenOrbPoint;
 
     private bool isDead = false;
+    private bool isExplode = false;
 
     void Start()
     {
@@ -63,12 +64,13 @@ public class AI : MonoBehaviour
         if (player) playerTransform = player.transform;
 
         animator = GetComponent<Animator>();
+        navMeshAgent.speed = 1.5f;
         lastAttackTime = -attackCooldown;
     }
 
     void Update()
     {
-        if (isDead || isFrozen || playerTransform == null) return;
+        if (isDead || isExplode || isFrozen || playerTransform == null) return;
 
         float speed = navMeshAgent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
@@ -90,6 +92,12 @@ public class AI : MonoBehaviour
         else if (!isWaiting && isDead == false)
         {
             EnemyPath();
+        }
+
+        if (navMeshAgent.velocity.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
     }
 
@@ -198,7 +206,15 @@ public class AI : MonoBehaviour
 
     public void GrenadeImpact()
     {
-        Destroy(gameObject);
+        if (objectToActivate != null) objectToActivate.SetActive(true);
+
+        if (frozenOrbePrefab != null)
+        {
+            Vector3 spawnPosition = frozenOrbPoint.gameObject.transform.position;
+            Instantiate(frozenOrbePrefab, spawnPosition, Quaternion.identity);
+        }
+        StartCoroutine(TimeExplodeAnimation());
+        SoundManager.Instance.PlaySound2D("EnemyHit");
     }
 
     public void Death()
@@ -237,6 +253,32 @@ public class AI : MonoBehaviour
         if (transform.parent != null)
         {
             Destroy(transform.parent.gameObject);  
+        }
+    }
+
+    private IEnumerator TimeExplodeAnimation()
+    {
+        isExplode = true;
+        followPlayer = false;
+        Collider collider = GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+        }
+
+        navMeshAgent.isStopped = true;
+        animator.SetTrigger("isExplode");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 1);
+
+        if (transform.parent != null)
+        {
+            Destroy(transform.parent.gameObject);
         }
     }
 
