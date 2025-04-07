@@ -1,0 +1,1066 @@
+Using pre-set license
+Built from '2023.2/staging' branch; Version is '2023.2.20f1 (0e25a174756c) revision 927137'; Using compiler version '193431935'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'es' Physical Memory: 16232 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2023.2.20f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+D:/Proyectos Unity/Lost in the Toyland/Lost-in-Toyland/Lost in Toyland
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+65260
+-job-worker-count
+5
+-background-job-worker-count
+8
+-asset-garbage-collectors
+1
+Successfully changed project path to: D:/Proyectos Unity/Lost in the Toyland/Lost-in-Toyland/Lost in Toyland
+D:/Proyectos Unity/Lost in the Toyland/Lost-in-Toyland/Lost in Toyland
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [28780] Host "[IP] 192.168.1.128 [Port] 0 [Flags] 2 [Guid] 1303670818 [EditorId] 1303670818 [Version] 1048832 [Id] WindowsEditor(7,ALEXANDRA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [28780] Host "[IP] 192.168.1.128 [Port] 0 [Flags] 2 [Guid] 1303670818 [EditorId] 1303670818 [Version] 1048832 [Id] WindowsEditor(7,ALEXANDRA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+[Physics::Module] Initialized MultithreadedJobDispatcher with 5 workers.
+Library Redirect Path: Library/
+Refreshing native plugins compatible for Editor in 5.41 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2023.2.20f1 (0e25a174756c)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Proyectos Unity/Lost in the Toyland/Lost-in-Toyland/Lost in Toyland/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 Ti (ID=0x2182)
+    Vendor:   NVIDIA
+    VRAM:     5966 MB
+    Driver:   32.0.15.7260
+Invalid texture used for cursor - check importer settings or texture creation. Texture must be RGBA32, readable, have alphaIsTransparency enabled and have no mip chain.
+Failed to set the cursor because the specified texture ('crosshair021') was not CPU accessible.
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56512
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004341 seconds.
+- Loaded All Assemblies, in  0.626 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.536 seconds
+Domain Reload Profiling: 1158ms
+	BeginReloadAssembly (205ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (63ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (77ms)
+	LoadAllAssembliesAndSetupDomain (258ms)
+		LoadAssemblies (198ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (255ms)
+			TypeCache.Refresh (252ms)
+				TypeCache.ScanAssembly (226ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (536ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (406ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (15ms)
+			SetLoadedEditorAssemblies (9ms)
+			BeforeProcessingInitializeOnLoad (12ms)
+			ProcessInitializeOnLoadAttributes (294ms)
+			ProcessInitializeOnLoadMethodAttributes (76ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+Assembly reference Packages/com.unity.entities/Unity.Scenes.Editor/Internals/Properties/Unity.Properties.Internals.asmref has no target assembly definition
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Assembly reference Packages/com.unity.entities/Unity.Scenes.Editor/Internals/Properties/Unity.Properties.Internals.asmref has no target assembly definition
+Assembly reference Packages/com.unity.entities/Unity.Scenes.Editor/Internals/Properties/Unity.Properties.Internals.asmref has no target assembly definition
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.541 seconds
+Assembly reference Packages/com.unity.entities/Unity.Scenes.Editor/Internals/Properties/Unity.Properties.Internals.asmref has no target assembly definition
+Refreshing native plugins compatible for Editor in 2.16 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.entities/Unity.Scenes.Editor/Internals/Properties/Unity.Properties.Internals.asmref has no target assembly definition
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Refreshing native plugins compatible for Editor in 2.43 ms, found 4 plugins.
+TypeManager.Initialize took: 484ms
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.028 seconds
+Domain Reload Profiling: 3564ms
+	BeginReloadAssembly (555ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (57ms)
+	LoadAllAssembliesAndSetupDomain (859ms)
+		LoadAssemblies (596ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (407ms)
+			TypeCache.Refresh (317ms)
+				TypeCache.ScanAssembly (291ms)
+			BuildScriptInfoCaches (62ms)
+			ResolveRequiredComponents (22ms)
+	FinalizeReload (2029ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1616ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (100ms)
+			ProcessInitializeOnLoadAttributes (1299ms)
+			ProcessInitializeOnLoadMethodAttributes (197ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (14ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 4.51 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 190 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7689 unused Assets / (6.1 MB). Loaded Objects now: 8384.
+Memory consumption went from 195.3 MB to 189.2 MB.
+Total: 30.656600 ms (FindLiveObjects: 1.302200 ms CreateObjectMapping: 5.462600 ms MarkObjects: 16.251500 ms  DeleteObjects: 7.638800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 44168.546657 seconds.
+  path: Assets/Imported
+  artifactKey: Guid(af36df74f825e09478ebbb6d2b1c8eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported using Guid(af36df74f825e09478ebbb6d2b1c8eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e6d23df2774b837bb43e4083436acd93') in 0.0056512 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.441724 seconds.
+  path: Assets/Imported/3DTOYS
+  artifactKey: Guid(3db03ee0f1690914288cdff4d63db720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS using Guid(3db03ee0f1690914288cdff4d63db720) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '79ac83463c928f55e7ff283f1906f523') in 0.0005972 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.085444 seconds.
+  path: Assets/Imported/3DTOYS/floormat.mat
+  artifactKey: Guid(e74f0dce22cad484b8684c134647c030) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/floormat.mat using Guid(e74f0dce22cad484b8684c134647c030) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'd215de37aa0226a579a5736229f93e61') in 0.6667681 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.534651 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS
+  artifactKey: Guid(1dc5aee341d73c841b4405f6c4333bbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS using Guid(1dc5aee341d73c841b4405f6c4333bbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8acdc60aa9b4679b5e37f15b928a1d8d') in 0.0005405 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.063758 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/BEAR.prefab
+  artifactKey: Guid(c3eb64e478b2bb748ae1501daf818368) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/BEAR.prefab using Guid(c3eb64e478b2bb748ae1501daf818368) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'dec6da76c59ed01fd8d380cd0e1a915b') in 0.4205211 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/RABBIT.prefab
+  artifactKey: Guid(c0838f71047cde340b8320435418a398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/RABBIT.prefab using Guid(c0838f71047cde340b8320435418a398) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '456686cd01f29687f7bea8845b6f5acb') in 0.0998475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.179603 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels
+  artifactKey: Guid(4b82fa6070bb9fe45916cea57582db88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels using Guid(4b82fa6070bb9fe45916cea57582db88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2d33ef10404fea3928f55709e3974018') in 0.0005838 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020238 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/M_bear.mat
+  artifactKey: Guid(f2b33c356d09d0e47b2432b94e9f4e5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/M_bear.mat using Guid(f2b33c356d09d0e47b2432b94e9f4e5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '3deff3f64d3b534e46ca7fcb13d13f4f') in 0.0310699 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/toymonkey_Default_color.png
+  artifactKey: Guid(208890bc510825d438e43242e698cee3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/toymonkey_Default_color.png using Guid(208890bc510825d438e43242e698cee3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1b388fe73066c2b0c156d9772b7ed2ed') in 0.0340446 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/toypenguin_Default_color.png
+  artifactKey: Guid(1907513a39d3f9b4aa7491ed34213782) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/toypenguin_Default_color.png using Guid(1907513a39d3f9b4aa7491ed34213782) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '086a274621c2efe188b404fd00534f99') in 0.0218622 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/toypig_Default_nmap.png
+  artifactKey: Guid(2808551021e7c8647b2007e53904e990) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/toypig_Default_nmap.png using Guid(2808551021e7c8647b2007e53904e990) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '61e56892d33278739ea21eec5c740009') in 0.0275659 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/toybear_Default_nmap.png
+  artifactKey: Guid(093df407683f5c24f9f262305bfa15a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/toybear_Default_nmap.png using Guid(093df407683f5c24f9f262305bfa15a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '202ff5d12e591a5c0b61c09ede70c175') in 0.0211249 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/toymonkey_Default_nmap.png
+  artifactKey: Guid(2fbe275da85dbbb41a0f5e62dfc74837) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/toymonkey_Default_nmap.png using Guid(2fbe275da85dbbb41a0f5e62dfc74837) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8f457f8f8c18577ee4e656409f879a31') in 0.0285593 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000126 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/toypenguin.fbx
+  artifactKey: Guid(0f9e8df778f2ada49984c6bf939305e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/toypenguin.fbx using Guid(0f9e8df778f2ada49984c6bf939305e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '083bf8854561f1152b1476f7b120ff48') in 0.3046805 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 55.179339 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/M_monkey.mat
+  artifactKey: Guid(5b809c90501a74a468a795707b2fd138) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/M_monkey.mat using Guid(5b809c90501a74a468a795707b2fd138) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'ea3cc650ed06ff7c2f54ffdf3b278eae') in 0.0242639 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Imported/3DTOYS/3dmodels/M_rabbit.mat
+  artifactKey: Guid(44c9d6ce33915414ab023dbda2897359) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/3dmodels/M_rabbit.mat using Guid(44c9d6ce33915414ab023dbda2897359) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '0191ae23e04da8e35387117fe63961aa') in 0.0281422 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.292952 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/MONKEY.prefab
+  artifactKey: Guid(d323fc18d7f7cbb4d971d8250d723165) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/MONKEY.prefab using Guid(d323fc18d7f7cbb4d971d8250d723165) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'ed8f2483e8ca08b323e186acf46f412d') in 0.0259576 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.294442 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/BEAR.prefab
+  artifactKey: Guid(c3eb64e478b2bb748ae1501daf818368) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/BEAR.prefab using Guid(c3eb64e478b2bb748ae1501daf818368) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'f44acf76b9c336fd9bd021d2a074dbac') in 0.0251489 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.382512 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/MONKEY.prefab
+  artifactKey: Guid(d323fc18d7f7cbb4d971d8250d723165) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/MONKEY.prefab using Guid(d323fc18d7f7cbb4d971d8250d723165) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'a1fd05505b2514372c6425c6c014dd4f') in 0.0227492 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.039473 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/PENGUIN.prefab
+  artifactKey: Guid(da4ad2310c6a3a44e8c6b74c731ffbc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/PENGUIN.prefab using Guid(da4ad2310c6a3a44e8c6b74c731ffbc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '2e37b0c1670f707cd40f37b1b02bbb4c') in 0.0233033 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.401055 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/PENGUIN.prefab
+  artifactKey: Guid(da4ad2310c6a3a44e8c6b74c731ffbc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/PENGUIN.prefab using Guid(da4ad2310c6a3a44e8c6b74c731ffbc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '97b9d88cbde3ec6140b0c850185afe9d') in 0.023749 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.403290 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/PENGUIN.prefab
+  artifactKey: Guid(da4ad2310c6a3a44e8c6b74c731ffbc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/PENGUIN.prefab using Guid(da4ad2310c6a3a44e8c6b74c731ffbc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'cf7858fdee0afd699c9594364182435f') in 0.021764 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.148706 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/PIG.prefab
+  artifactKey: Guid(0f1a91f0bb3d8d3429a91e85f923157c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/PIG.prefab using Guid(0f1a91f0bb3d8d3429a91e85f923157c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'f575d820d0c95c073dfacef8a0aaf742') in 0.0335439 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.745535 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/PIG.prefab
+  artifactKey: Guid(0f1a91f0bb3d8d3429a91e85f923157c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/PIG.prefab using Guid(0f1a91f0bb3d8d3429a91e85f923157c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '47c7dbc2f43089585652355977cb7a5a') in 0.0221506 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.004607 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/PIG.prefab
+  artifactKey: Guid(0f1a91f0bb3d8d3429a91e85f923157c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/PIG.prefab using Guid(0f1a91f0bb3d8d3429a91e85f923157c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '643e45d434822c028e99a762866308dd') in 0.0269377 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.987911 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/RABBIT.prefab
+  artifactKey: Guid(c0838f71047cde340b8320435418a398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/RABBIT.prefab using Guid(c0838f71047cde340b8320435418a398) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '824bc0f8f39aec82e92ab287794e6f03') in 0.0224847 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.310107 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/SHEEP.prefab
+  artifactKey: Guid(4941dfa9146ec4247801bfca23379626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/SHEEP.prefab using Guid(4941dfa9146ec4247801bfca23379626) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '5e1eec7ddf88b091947aab92c4ec6060') in 0.0236295 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 111.330630 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/BEAR.prefab
+  artifactKey: Guid(c3eb64e478b2bb748ae1501daf818368) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/BEAR.prefab using Guid(c3eb64e478b2bb748ae1501daf818368) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'b06be6d6a63d81c80224b36279292aab') in 0.0241497 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.961534 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/MONKEY.prefab
+  artifactKey: Guid(d323fc18d7f7cbb4d971d8250d723165) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/MONKEY.prefab using Guid(d323fc18d7f7cbb4d971d8250d723165) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '6dcac6be8dab6021ba7170e8cad1b196') in 0.026137 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012617 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/PENGUIN.prefab
+  artifactKey: Guid(da4ad2310c6a3a44e8c6b74c731ffbc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/PENGUIN.prefab using Guid(da4ad2310c6a3a44e8c6b74c731ffbc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '249da9c8d82e244457f2d2ce256fcc5f') in 0.2519522 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Imported/3DTOYS/PREFABS/SHEEP.prefab
+  artifactKey: Guid(4941dfa9146ec4247801bfca23379626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imported/3DTOYS/PREFABS/SHEEP.prefab using Guid(4941dfa9146ec4247801bfca23379626) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'ceaeba8682b02dde458c1064cc404dae') in 0.0287353 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 128.313413 seconds.
+  path: Assets/Models/World/Mueble1.fbx
+  artifactKey: Guid(3ec71e52844224144b2d61f64e05a03f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/World/Mueble1.fbx using Guid(3ec71e52844224144b2d61f64e05a03f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '5a32209e5cef0c52ed96998a229d3598') in 0.3283472 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 97
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Models/World/Bed.fbx
+  artifactKey: Guid(da15ce9fbc0540f4caca64e3af1ef995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/World/Bed.fbx using Guid(da15ce9fbc0540f4caca64e3af1ef995) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '8fd3454f6873d4a45f8e50b86bdb1cbf') in 0.2199041 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 92
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Models/World/ToyBox.fbx
+  artifactKey: Guid(d1c0f78d435cf734280a43313a3acbd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/World/ToyBox.fbx using Guid(d1c0f78d435cf734280a43313a3acbd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: '8f7ba32672aee42c50790c9bb40b4b50') in 0.1031976 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 37
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Models/World/Sillon.fbx
+  artifactKey: Guid(0d2f2b76d5fb25f41a080fbc029a8a6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/World/Sillon.fbx using Guid(0d2f2b76d5fb25f41a080fbc029a8a6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)Missing types referenced from component UniversalRenderPipelineGlobalSettings on game object UniversalRenderPipelineGlobalSettings:
+	UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime (1 object)
+	UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.STP/RuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+	UnityEngine.Rendering.Universal.RenderGraphSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.Renderer2DResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.URPDefaultVolumeProfileSettings, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineDebugShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorAssets, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorMaterials, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeShaders, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeTextures, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRenderPipelineRuntimeXRResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.Universal.UniversalRendererResources, Unity.RenderPipelines.Universal.Runtime (1 object)
+	UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime (1 object)
+ -> (artifact id: 'edaa8cacbc1b8d38d1c74bd24d2f7cd8') in 0.0432627 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
