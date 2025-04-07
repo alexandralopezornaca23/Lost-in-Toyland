@@ -114,7 +114,7 @@ public class PlayerInteractions : MonoBehaviour
                 if (giftOpen != null && giftOpen.giftObjects.Length > 0)
                 {
                     giftOpen.OpenBox();
-                    SoundManager.Instance.PlaySound2D("PlayerHit");
+                    SoundManager.Instance.PlaySound2D("Gift");
                     infoGiftBox.SetActive(false);
                     nearbyObject = null;
                 }
@@ -324,18 +324,22 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (item.CompareTag("GunAmmo"))
         {
+            SoundManager.Instance.PlaySound2D("Pickup");
             GameManager.Instance.gunAmmo += item.GetComponent<AmmoBox>().ammo;
         }
         else if (item.CompareTag("FrozenGunAmmo"))
         {
+            SoundManager.Instance.PlaySound2D("Pickup");
             GameManager.Instance.frozenAmmo += item.GetComponent<FrozenOrbe>().frozenAmmo;
         }
         else if (item.CompareTag("Grenade"))
         {
+            SoundManager.Instance.PlaySound2D("Pickup");
             GameManager.Instance.grenadeAmmo += item.GetComponent<GrenadeObject>().grenade;
         }
         else if (item.CompareTag("HealthObject"))
         {
+            SoundManager.Instance.PlaySound2D("Pickup");
             GameManager.Instance.AddHealth(item.GetComponent<HealthObject>().health);
         }
 

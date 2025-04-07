@@ -40,7 +40,6 @@ public class PauseMenu : MonoBehaviour
             playerInput.enabled = true;
             cinemachineBrain.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
 
             FindFirstObjectByType<PlayerController>().isPaused = false;
         }

@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public int maxHealth = 100;
 
+    public int keysCollected = 0;
+
     private void Awake()
     {
         Instance = this;
@@ -57,5 +59,16 @@ public class GameManager : MonoBehaviour
         {
             this.health += health;
         }
+    }
+
+    public void ResetKeys()
+    {
+        keysCollected = 0;
+    }
+
+    public void AddKey()
+    {
+        SoundManager.Instance.PlaySound2D("Key");
+        keysCollected++;
     }
 }

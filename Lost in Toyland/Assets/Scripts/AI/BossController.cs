@@ -25,6 +25,8 @@ public class BossController : MonoBehaviour
 
     public GameObject keys;
 
+    private bool bossIsDeath = false;
+
     void Start()
     {
         keys.gameObject.SetActive(false);
@@ -49,11 +51,20 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
-        fireCooldown -= Time.deltaTime;
-        if (fireCooldown <= 0f)
+        if (bossIsDeath == false)
         {
-            Shoot();
-            fireCooldown = fireRate;
+            fireCooldown -= Time.deltaTime;
+            if (fireCooldown <= 0f)
+            {
+                Shoot();
+                fireCooldown = fireRate;
+            }
+        }
+        else
+        {
+            BossController bossController = new BossController();
+            bossController.enabled = false;
+            shootAnimator.enabled = false;
         }
     }
 
@@ -109,6 +120,7 @@ public class BossController : MonoBehaviour
     public void Die()
     {
         StartCoroutine(WaitDie());
+        bossIsDeath = true;
     }
 
     IEnumerator WaitDie()
@@ -117,9 +129,6 @@ public class BossController : MonoBehaviour
         shootAnimator.SetTrigger("Die");
         keys.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(3);
-        BossController bossController = new BossController();
-        bossController.enabled = false;
-        shootAnimator.enabled = false;
+        yield return new WaitForSeconds(3);        
     }
 }

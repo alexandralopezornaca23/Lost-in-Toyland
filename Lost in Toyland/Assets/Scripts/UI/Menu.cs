@@ -13,6 +13,8 @@ public class Menu : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             Invoke(nameof(PlayMusic), 0.1f);
         }
 
@@ -57,6 +59,8 @@ public class Menu : MonoBehaviour
     public void GoMainMenu()
     {
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         LevelManager.Instance.LoadScene("MainMenu", "CrossFade");
         MusicManager.Instance.PlayMusic("MainMenu");
     }
